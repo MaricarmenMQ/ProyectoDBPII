@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">PocketPet</string>
+    <!--  Bienvenida -->
+    <string name="texto_inicial">Bienvenido a la app</string>
+    <string name="ingresa_nombre">Escribe tu nombre</string>
+    <string name="boton_saludar">Saludar</string>
+    <string name="bienvenido_titulo">¡Bienvenido a PocketPet!</string>
+    <string name="bienvenido_subtitulo">Tu mascota refleja tu salud financiera</string>
+    <string name="btn_inicio">Comenzar</string>
 </resources>
