@@ -1,0 +1,100 @@
+{
+  "categorias": [
+    {
+      "id": 1,
+      "nombre": "Alimentación",
+      "tipo": "GASTO",
+      "icono": "ic_food",
+      "color": "#FF6B6B",
+      "descripcion": "Comidas, supermercado, restaurantes"
+    },
+    {
+      "id": 2,
+      "nombre": "Transporte",
+      "tipo": "GASTO",
+      "icono": "ic_transport",
+      "color": "#4ECDC4",
+      "descripcion": "Combustible, pasajes, taxi, Uber"
+    },
+    {
+      "id": 3,
+      "nombre": "Entretenimiento",
+      "tipo": "GASTO",
+      "icono": "ic_entertainment",
+      "color": "#FFE66D",
+      "descripcion": "Cine, streaming, salidas, hobbies"
+    },
+    {
+      "id": 4,
+      "nombre": "Salud",
+      "tipo": "GASTO",
+      "icono": "ic_health",
+      "color": "#95E1D3",
+      "descripcion": "Médico, farmacia, gimnasio"
+    },
+    {
+      "id": 5,
+      "nombre": "Educación",
+      "tipo": "GASTO",
+      "icono": "ic_education",
+      "color": "#A8E6CF",
+      "descripcion": "Libros, cursos, materiales"
+    },
+    {
+      "id": 6,
+      "nombre": "Vivienda",
+      "tipo": "GASTO",
+      "icono": "ic_home",
+      "color": "#FFB347",
+      "descripcion": "Alquiler, servicios, mantenimiento"
+    },
+    {
+      "id": 7,
+      "nombre": "Ropa",
+      "tipo": "GASTO",
+      "icono": "ic_clothes",
+      "color": "#DDA0DD",
+      "descripcion": "Vestimenta, calzado, accesorios"
+    },
+    {
+      "id": 8,
+      "nombre": "Otros Gastos",
+      "tipo": "GASTO",
+      "icono": "ic_other",
+      "color": "#B0B0B0",
+      "descripcion": "Gastos varios no categorizados"
+    },
+    {
+      "id": 9,
+      "nombre": "Salario",
+      "tipo": "INGRESO",
+      "icono": "ic_salary",
+      "color": "#51CF66",
+      "descripcion": "Sueldo mensual, pagos regulares"
+    },
+    {
+      "id": 10,
+      "nombre": "Freelance",
+      "tipo": "INGRESO",
+      "icono": "ic_freelance",
+      "color": "#74C0FC",
+      "descripcion": "Trabajos independientes, proyectos"
+    },
+    {
+      "id": 11,
+      "nombre": "Inversiones",
+      "tipo": "INGRESO",
+      "icono": "ic_investment",
+      "color": "#FFD43B",
+      "descripcion": "Dividendos, ganancias de capital"
+    },
+    {
+      "id": 12,
+      "nombre": "Otros Ingresos",
+      "tipo": "INGRESO",
+      "icono": "ic_income_other",
+      "color": "#94D82D",
+      "descripcion": "Ingresos extras, regalos, bonos"
+    }
+  ]
+}
