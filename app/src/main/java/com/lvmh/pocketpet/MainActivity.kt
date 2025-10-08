@@ -6,7 +6,7 @@ import androidx.activity.ComponentActivity
 import androidx.lifecycle.lifecycleScope
 import com.lvmh.pocketpet.presentacion.pantallas.core.actividad_bienvenida
 import com.lvmh.pocketpet.presentacion.pantallas.core.actividad_panelprincipal
-import com.lvmh.pocketpet.utilidades.administradorpreferenciasUsuario
+import com.lvmh.pocketpet.dominio.utilidades.administradorpreferenciasUsuario
 import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {

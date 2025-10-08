@@ -4,8 +4,8 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.lvmh.pocketpet.databinding.ActividadPrincipalBienvenidaBinding
-import com.lvmh.pocketpet.utilidades.FormatearMoneda
-import com.lvmh.pocketpet.utilidades.administradorpreferenciasUsuario
+import com.lvmh.pocketpet.dominio.utilidades.FormatearMoneda
+import com.lvmh.pocketpet.dominio.utilidades.administradorpreferenciasUsuario
 import kotlinx.coroutines.launch
 
 class actividad_panelprincipal : AppCompatActivity() {
