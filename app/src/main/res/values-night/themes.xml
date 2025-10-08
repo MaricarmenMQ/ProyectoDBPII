@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources
     <!-- Colores principales -->
     <item name="colorPrimario">@color/color_primario</item>
     <item name="colorPrimarioOscuro">@color/color_primario_oscuro</item>
