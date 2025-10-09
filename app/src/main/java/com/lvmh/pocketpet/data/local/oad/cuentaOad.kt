@@ -1,4 +1,4 @@
 package com.lvmh.pocketpet.data.local.oad
 
-interface montoOad {
+interface cuentaOad {
 }

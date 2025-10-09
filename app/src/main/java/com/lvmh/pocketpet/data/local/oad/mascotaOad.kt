@@ -6,7 +6,7 @@ import kotlinx.coroutines.flow.Flow
 
 
 @Dao
-interface mascotaDao {
+interface mascotaOad {
 
     @Query("SELECT * FROM mascota WHERE id = 1 LIMIT 1")
     fun obtener_mascota(): Flow<mascota_entidad?>

@@ -5,7 +5,7 @@ import com.lvmh.pocketpet.data.local.entidades.logro_entidad
 import kotlinx.coroutines.flow.Flow
 
 @Dao
-interface logro_oad {
+interface logroOad {
 
     @Query("SELECT * FROM logros ORDER BY desbloqueado DESC, categoria, rareza DESC")
     fun obtener_todos_logros(): Flow<List<logro_entidad>>
