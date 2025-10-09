@@ -1,5 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+<<<<<<< HEAD
 
     <style name="Theme.PocketPet" parent="android:Theme.Material.Light.NoActionBar" />
+=======
+    <!-- Colores principales -->
+    <item name="colorPrimario">@color/color_primario</item>
+    <item name="colorPrimarioOscuro">@color/color_primario_oscuro</item>
+    <item name="colorSecundario">@color/color_secundario</item>
+    <item name="colorAcento">@color/color_acento</item>
+
+    <!-- Fondos -->
+    <item name="android:colorFondo">@color/fondo_primario</item>
+    <item name="colorSuperficie">@color/fondo_card</item>
+
+    <!-- Texto -->
+    <item name="android:textoColorPrincipal">@color/texto_primario</item>
+    <item name="android:textoColorSecundario">@color/texto_secundario</item>
+
+    <!-- Estados -->
+    <item name="colorError">@color/color_error</item>
+    <item name="colorTextoSobreError">@color/texto_sobre_color</item>
+
+    <!-- Controles UI -->
+    <item name="android:colorControlResaltado">@color/ripple</item>
+    <item name="colorControlActivado">@color/color_primario</item>
+    <item name="colorDivisor">@color/divisor</item>
+
+    <!-- Botones -->
+    <item name="estiloBoton">@style/Boton.Primario</item>
+</style>
+
+<style name="Boton.Primario" parent="Widget.MaterialComponents.Button">
+<item name="backgroundTint">@color/color_primario</item>
+<item name="android:textColor">@color/texto_sobre_color</item>
+</style>
+
+<style name="Boton.Secundario" parent="Widget.MaterialComponents.Button.OutlinedButton">
+<item name="strokeColor">@color/color_secundario</item>
+<item name="android:textColor">@color/color_secundario</item>
+</style>
+>>>>>>> 659aa94513e4e27a1d883ea9b2add7cdac420627
 </resources>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources
+    <!-- Principal -->
+    <color name="color_primario_dark">#8B5CF6</color>
+    <color name="color_primario_oscuro_dark"
+    <color name="color_primario_claro_dark">#A78BFA</color>
+
+    <color name="color_secundario_dark">#22D3EE</color>
+    <color name="color_secundario_oscuro_dark">#06B6D4</color>
+    <color name="color_secundario_claro_dark">#67E8F9</color>
+
+    <color name="color_acento_dark">#FCD34D</color>
+    <!-- Funcionales -->
+    <color name="color_ingreso_dark">#10B981</color>
+    <color name="color_ingreso_fondo_dark">#064E3B</color>
+
+    <color name="color_gasto_dark">#F87171</color>
+    <color name="color_gasto_fondo_dark">#7F1D1D</color>
+
+    <color name="color_balance_positivo_dark">#10B981</color>
+    <color name="color_balance_negativo_dark">#F87171</color>
+    <color name="color_balance_neutro_dark">#9CA3AF</color>
+
+    <!-- Estados -->
+    <color name="color_exito_dark">#10B981</color>
+    <color name="color_advertencia_dark">#FCD34D</color>
+    <color name="color_error_dark">#F87171</color>
+    <color name="color_info_dark">#60A5FA</color>
+
+    <!-- Fondos -->
+    <color name="fondo_primario_dark">#0F172A</color>
+    <color name="fondo_secundario_dark">#1E293B</color>
+    <color name="fondo_terciario_dark">#334155</color>
+    <color name="fondo_card_dark">#1E293B</color>
+
+    <!-- Textos -->
+    <color name="texto_primario_dark">#F1F5F9</color>
+    <color name="texto_secundario_dark">#CBD5E1</color>
+    <color name="texto_terciario_dark">#94A3B8</color>
+    <color name="texto_sobre_color_dark">#0F172A</color>
+
+    <!-- Bordes -->
+    <color name="borde_dark">#334155</color>
+    <color name="divisor_dark">#1E293B</color>
+
+    <!-- Interacción -->
+    <color name="ripple_dark">#1A8B5CF6</color>
+    <color name="seleccionado_dark">#2D1B4E</color>
+
+    <!-- Categorías -->
+    <color name="categoria_comida_dark">#FCD34D</color>
+    <color name="categoria_transporte_dark">#60A5FA</color>
+    <color name="categoria_ocio_dark">#A78BFA</color>
+    <color name="categoria_salud_dark">#10B981</color>
+    <color name="categoria_educacion_dark">#22D3EE</color>
+    <color name="categoria_hogar_dark">#FB923C</color>
+    <color name="categoria_servicios_dark">#38BDF8</color>
+    <color name="categoria_otros_dark">#9CA3AF</color>
+
+    <!-- Gráficos -->
+    <color name="grafico_1_dark">#8B5CF6</color>
+    <color name="grafico_2_dark">#22D3EE</color>
+    <color name="grafico_3_dark">#FCD34D</color>
+    <color name="grafico_4_dark">#10B981</color>
+    <color name="grafico_5_dark">#F87171</color>
+    <color name="grafico_6_dark">#60A5FA</color>
+    <color name="grafico_grid_dark">#334155</color>
+
+    <!-- Mascota -->
+    <color name="mascota_feliz_dark">#10B981</color>
+    <color name="mascota_neutral_dark">#FCD34D</color>
+    <color name="mascota_triste_dark">#9CA3AF</color>
+    <color name="mascota_emocionado_dark">#22D3EE</color>
+
+    <!-- Presupuesto -->
+    <color name="presupuesto_bajo_dark">#10B981</color>
+    <color name="presupuesto_medio_dark">#FCD34D</color>
+    <color name="presupuesto_alto_dark">#F87171</color>
+    <color name="presupuesto_excedido_dark">#DC2626</color>
+
+    <!-- Especiales -->
+    <color name="transparente_dark">#00000000</color>
+    <color name="sombra_dark">#40000000</color>
+    <color name="overlay_dark">#B3000000</color>
+</resources>

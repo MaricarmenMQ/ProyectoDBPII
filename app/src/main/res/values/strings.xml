@@ -1,3 +1,189 @@
 <resources>
+<<<<<<< HEAD
     <string name="app_name">PocketPet</string>
+=======
+    <!-- General -->
+    <string name="nombre_app">PocketPet</string>
+    <string name="aceptar">Aceptar</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="guardar">Guardar</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="editar">Editar</string>
+    <string name="compartir">Compartir</string>
+    <string name="buscar">Buscar</string>
+    <string name="filtrar">Filtrar</string>
+    <string name="cerrar">Cerrar</string>
+    <string name="volver">Volver</string>
+    <string name="continuar">Continuar</string>
+
+    <!-- Estadísticas -->
+    <string name="titulo_estadisticas">Estadísticas</string>
+    <string name="ingresos">Ingresos</string>
+    <string name="gastos">Gastos</string>
+    <string name="balance">Balance</string>
+    <string name="promedio_diario">Promedio Diario</string>
+    <string name="gasto_diario">Gasto Diario</string>
+    <string name="flujo_dinero">Flujo de dinero</string>
+    <string name="donde_mas_gastas">Donde más gastas</string>
+    <string name="vs_mes_pasado">vs mes pasado</string>
+
+    <!-- Períodos -->
+    <string name="semana">Semana</string>
+    <string name="mes">Mes</string>
+    <string name="ano">Año</string>
+    <string name="personalizado">Personalizado</string>
+    <string name="mes_actual">Mes actual</string>
+    <string name="mes_anterior">Mes anterior</string>
+    <string name="ultimos_3_meses">Últimos 3 meses</string>
+
+    <!-- Categorías -->
+    <string name="titulo_analisis_categoria">Análisis por Categoría</string>
+    <string name="comida">Comida</string>
+    <string name="transporte">Transporte</string>
+    <string name="ocio">Ocio</string>
+    <string name="salud">Salud</string>
+    <string name="educacion">Educación</string>
+    <string name="hogar">Hogar</string>
+    <string name="servicios">Servicios</string>
+    <string name="otros">Otros</string>
+    <string name="ver_transacciones">Ver transacciones</string>
+    <string name="transacciones">Transacciones</string>
+    <string name="promedio">Promedio</string>
+    <string name="mas_caro">Más caro</string>
+    <string name="mas_barato">Más barato</string>
+    <string name="tendencia">Tendencia</string>
+
+    <!-- Tendencias -->
+    <string name="titulo_tendencias">Tendencias</string>
+    <string name="tendencia_general">Tendencia General</string>
+    <string name="mejor_mes">Mejor Mes</string>
+    <string name="peor_mes">Peor Mes</string>
+    <string name="mayor_gasto">Mayor gasto</string>
+    <string name="patrones_detectados">Patrones detectados</string>
+    <string name="proyeccion">Proyección próximo mes</string>
+    <string name="gastos_estimados">Gastos estimados</string>
+    <string name="gastos_aumentaron">Tus gastos aumentaron %1$s en los últimos 3 meses</string>
+    <string name="patron_dia">Gastas más los %1$s</string>
+    <string name="ingresos_estables">Tus ingresos son estables</string>
+    <string name="mayor_gasto_recurrente">%1$s es tu mayor gasto recurrente</string>
+
+    <!-- Presupuestos -->
+    <string name="titulo_presupuestos">Presupuestos</string>
+    <string name="agregar_presupuesto">Agregar Presupuesto</string>
+    <string name="presupuesto_total">Presupuesto Total</string>
+    <string name="gastado">Gastado</string>
+    <string name="restante">Restante</string>
+    <string name="cerca_limite">Cerca del límite</string>
+    <string name="en_control">En control</string>
+    <string name="excedido">Excedido</string>
+    <string name="excedido_por">Excedido por %1$s</string>
+    <string name="limite">Límite</string>
+    <string name="periodo">Período</string>
+    <string name="este_mes">Este mes</string>
+    <string name="alerta_cuando">Alerta cuando</string>
+    <string name="crear_presupuesto">Crear Presupuesto</string>
+    <string name="editar_presupuesto">Editar Presupuesto</string>
+
+    <!-- Metas -->
+    <string name="titulo_metas">Metas de Ahorro</string>
+    <string name="agregar_meta">Agregar Meta</string>
+    <string name="nombre_meta">Nombre de la meta</string>
+    <string name="monto_objetivo">Monto objetivo</string>
+    <string name="fecha_limite">Fecha límite</string>
+    <string name="dias_restantes">%1$d días restantes</string>
+    <string name="ahorro_recomendado">Ahorro recomendado</string>
+    <string name="por_dia">por día</string>
+    <string name="aportar">Aportar</string>
+    <string name="monto_aportar">Monto a aportar</string>
+    <string name="cuenta_origen">Cuenta origen</string>
+    <string name="nota">Nota</string>
+    <string name="meta_completada">Meta completada</string>
+    <string name="progreso">Progreso</string>
+    <string name="crear_meta">Crear Meta</string>
+    <string name="editar_meta">Editar Meta</string>
+
+    <!-- Calendario -->
+    <string name="titulo_calendario">Calendario Financiero</string>
+    <string name="resumen_mes">Resumen del mes</string>
+    <string name="detalle_dia">Detalle del día</string>
+    <string name="vista_mes">Vista Mes</string>
+    <string name="vista_lista">Vista Lista</string>
+    <string name="total_dia">Total del día</string>
+
+    <!-- Reportes -->
+    <string name="titulo_reportes">Reportes</string>
+    <string name="tipo_reporte">Tipo de reporte</string>
+    <string name="resumen">Resumen</string>
+    <string name="detallado">Detallado</string>
+    <string name="comparativo">Comparativo</string>
+    <string name="exportar_pdf">Exportar PDF</string>
+    <string name="exportar_excel">Exportar Excel</string>
+    <string name="compartir_imagen">Compartir imagen</string>
+    <string name="ingresos_totales">Ingresos totales</string>
+    <string name="gastos_totales">Gastos totales</string>
+    <string name="mayores_ingresos">Mayores ingresos</string>
+    <string name="mayores_gastos">Mayores gastos</string>
+    <string name="distribucion_categorias">Distribución por categorías</string>
+
+    <!-- Comparativas -->
+    <string name="titulo_comparativas">Comparativas</string>
+    <string name="periodo_a">Período A</string>
+    <string name="periodo_b">Período B</string>
+    <string name="comparar">Comparar</string>
+    <string name="comparacion">Comparación</string>
+    <string name="metrica">Métrica</string>
+    <string name="cambio">Cambio</string>
+    <string name="por_categorias">Por categorías</string>
+    <string name="insights">Insights</string>
+    <string name="gastaste_menos">Gastaste menos en %1$s</string>
+    <string name="categoria_aumento">%1$s aumentó %2$s</string>
+    <string name="categoria_redujo">%1$s se redujo</string>
+
+    <!-- Moneda -->
+    <string name="moneda_soles">S/ %1$s</string>
+    <string name="porcentaje">%1$s%%</string>
+
+    <!-- Errores -->
+    <string name="error_cargar_datos">Error al cargar datos</string>
+    <string name="error_guardar">Error al guardar</string>
+    <string name="error_eliminar">Error al eliminar</string>
+    <string name="sin_datos">No hay datos disponibles</string>
+    <string name="sin_conexion">Sin conexión a internet</string>
+
+    <!-- Mensajes -->
+    <string name="presupuesto_guardado">Presupuesto guardado correctamente</string>
+    <string name="meta_guardada">Meta guardada correctamente</string>
+    <string name="transaccion_eliminada">Transacción eliminada</string>
+    <string name="reporte_generado">Reporte generado exitosamente</string>
+    <string name="confirmar_eliminar">¿Estás seguro de eliminar?</string>
+
+    <!-- Mascota -->
+    <string name="mascota_feliz">Tu mascota está feliz</string>
+    <string name="mascota_neutral">Tu mascota está tranquila</string>
+    <string name="mascota_triste">Tu mascota está triste</string>
+    <string name="mascota_emocionado">Tu mascota está emocionada</string>
+
+    <!-- Días de la semana -->
+    <string name="lunes">Lunes</string>
+    <string name="martes">Martes</string>
+    <string name="miercoles">Miércoles</string>
+    <string name="jueves">Jueves</string>
+    <string name="viernes">Viernes</string>
+    <string name="sabado">Sábado</string>
+    <string name="domingo">Domingo</string>
+
+    <!-- Meses -->
+    <string name="enero">Enero</string>
+    <string name="febrero">Febrero</string>
+    <string name="marzo">Marzo</string>
+    <string name="abril">Abril</string>
+    <string name="mayo">Mayo</string>
+    <string name="junio">Junio</string>
+    <string name="julio">Julio</string>
+    <string name="agosto">Agosto</string>
+    <string name="septiembre">Septiembre</string>
+    <string name="octubre">Octubre</string>
+    <string name="noviembre">Noviembre</string>
+    <string name="diciembre">Diciembre</string>
+>>>>>>> 659aa94513e4e27a1d883ea9b2add7cdac420627
 </resources>
