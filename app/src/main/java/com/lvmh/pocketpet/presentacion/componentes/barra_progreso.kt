@@ -1,7 +1,5 @@
 package com.lvmh.pocketpet.presentacion.componentes
 
-package com.financepet.presentacion.componentes
-
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
@@ -10,14 +8,11 @@ import android.graphics.RectF
 import android.util.AttributeSet
 import android.view.View
 import androidx.core.content.ContextCompat
-import com.financepet.R
+import com.lvmh.pocketpet.R
 import kotlin.math.ceil
 
-/**
- * BarraDeProgresoPersonalizada - Componente personalizado para mostrar barras de progreso avanzadas
- * Soporta animación, colores dinámicos y etiquetas
- */
-class BarraDeProgresoPersonalizada @JvmOverloads constructor(
+
+class barra_progreso @JvmOverloads constructor(
     contexto: Context,
     atributos: AttributeSet? = null,
     estiloDefecto: Int = 0
@@ -41,9 +36,9 @@ class BarraDeProgresoPersonalizada @JvmOverloads constructor(
     private val alturaEtiqueta = 30f
 
     enum class EstiloProgreso {
-        LINEAL,     // Barra simple
-        DEGRADADO,  // Barra con degradado
-        SEGMENTADA  // Barra segmentada
+        LINEAL,
+        DEGRADADO,
+        SEGMENTADA
     }
 
     private var estiloProgreso = EstiloProgreso.LINEAL
@@ -56,7 +51,7 @@ class BarraDeProgresoPersonalizada @JvmOverloads constructor(
         }
 
         pinturaProgreso.apply {
-            color = ContextCompat.getColor(contexto, R.color.colorPrimary)
+            color = ContextCompat.getColor(contexto, R.color.color_primario)
             style = Paint.Style.FILL
         }
 
@@ -65,8 +60,6 @@ class BarraDeProgresoPersonalizada @JvmOverloads constructor(
             textSize = 36f
             textAlign = Paint.Align.CENTER
         }
-
-        // Leer atributos personalizados
         atributos?.let { leerAtributos(it) }
     }
 
@@ -86,59 +79,37 @@ class BarraDeProgresoPersonalizada @JvmOverloads constructor(
         }
     }
 
-    /**
-     * Establece el progreso actual
-     */
     fun establecerProgreso(nuevoProgreso: Int) {
         progreso = nuevoProgreso.coerceIn(0, progresoMaximo)
         invalidate()
     }
 
-    /**
-     * Anima el progreso hacia un valor objetivo
-     */
     fun animarProgreso(objetivo: Int) {
         progresoObjetivo = objetivo.coerceIn(0, progresoMaximo)
         tiempoInicio = System.currentTimeMillis()
         animarFotograma()
     }
 
-    /**
-     * Establece el progreso máximo
-     */
     fun establecerProgresoMaximo(max: Int) {
         progresoMaximo = max.coerceAtLeast(1)
         progreso = progreso.coerceIn(0, progresoMaximo)
         invalidate()
     }
 
-    /**
-     * Establece la etiqueta de la barra
-     */
     fun establecerEtiqueta(texto: String) {
         etiqueta = texto
         invalidate()
     }
 
-    /**
-     * Establece el color del progreso
-     */
     fun establecerColorProgreso(color: Int) {
         pinturaProgreso.color = color
         invalidate()
     }
 
-    /**
-     * Establece el color del fondo
-     */
     fun establecerColorFondo(color: Int) {
         pinturaFondo.color = color
         invalidate()
     }
-
-    /**
-     * Establece el estilo de progreso
-     */
     fun establecerEstiloProgreso(estilo: EstiloProgreso) {
         estiloProgreso = estilo
         invalidate()
@@ -156,7 +127,6 @@ class BarraDeProgresoPersonalizada @JvmOverloads constructor(
             canvas.drawText(etiqueta, width / 2f, alturaEtiqueta, pinturaTexto)
         }
 
-        // Dibujar fondo
         val rectFondo = RectF(
             relleno,
             inicioY,
@@ -165,7 +135,6 @@ class BarraDeProgresoPersonalizada @JvmOverloads constructor(
         )
         canvas.drawRoundRect(rectFondo, radioEsquina, radioEsquina, pinturaFondo)
 
-        // Dibujar progreso
         val anchoProgreso = ((progreso.toFloat() / progresoMaximo) * (width - 2 * relleno))
         val rectProgreso = RectF(
             relleno,
@@ -248,21 +217,4 @@ class BarraDeProgresoPersonalizada @JvmOverloads constructor(
     }
 }
 
-/**
- * StyleableRes para BarraDeProgresoPersonalizada (agregar a attrs.xml)
- */
-/*
-<declare-styleable name="CustomProgressBar">
-    <attr name="progress" format="integer" />
-    <attr name="maxProgress" format="integer" />
-    <attr name="showPercentage" format="boolean" />
-    <attr name="showLabel" format="boolean" />
-    <attr name="label" format="string" />
-    <attr name="progressStyle" format="enum">
-        <enum name="linear" value="0" />
-        <enum name="gradient" value="1" />
-        <enum name="segmented" value="2" />
-    </attr>
-</declare-styleable>
-*/
 
