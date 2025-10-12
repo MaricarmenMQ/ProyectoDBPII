@@ -83,4 +83,9 @@
     <color name="transparente">#00000000</color>
     <color name="sombra">#1A000000</color>
     <color name="overlay">#80000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="color_primary"
+        color="">#5B21B6</color>
+
 </resources>

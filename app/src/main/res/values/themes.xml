@@ -1,44 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-<<<<<<< HEAD
+<resources xmlns:tools="http://schemas.android.com/tools">
 
-    <style name="Theme.PocketPet" parent="android:Theme.Material.Light.NoActionBar" />
-=======
-    <!-- Colores principales -->
-    <item name="colorPrimario">@color/color_primario</item>
-    <item name="colorPrimarioOscuro">@color/color_primario_oscuro</item>
-    <item name="colorSecundario">@color/color_secundario</item>
-    <item name="colorAcento">@color/color_acento</item>
+    <!-- Tema base de la aplicación -->
+    <style name="Theme.PocketPet" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Colores principales -->
+        <item name="colorPrimary">@color/color_primario</item>
+        <item name="colorPrimaryVariant">@color/color_primario_oscuro</item>
+        <item name="colorSecondary">@color/color_secundario</item>
+        <item name="colorAccent">@color/color_acento</item>
 
-    <!-- Fondos -->
-    <item name="android:colorFondo">@color/fondo_primario</item>
-    <item name="colorSuperficie">@color/fondo_card</item>
+        <!-- Colores de superficie y fondo -->
+        <item name="android:colorBackground">@color/fondo_primario</item>
+        <item name="colorSurface">@color/fondo_card</item>
 
-    <!-- Texto -->
-    <item name="android:textoColorPrincipal">@color/texto_primario</item>
-    <item name="android:textoColorSecundario">@color/texto_secundario</item>
+        <!-- Colores de texto -->
+        <item name="android:textColorPrimary">@color/texto_primario</item>
+        <item name="android:textColorSecondary">@color/texto_secundario</item>
+        <item name="colorOnPrimary">@color/texto_sobre_color</item>
+        <item name="colorOnSurface">@color/texto_primario</item>
 
-    <!-- Estados -->
-    <item name="colorError">@color/color_error</item>
-    <item name="colorTextoSobreError">@color/texto_sobre_color</item>
+        <!-- Estados y controles -->
+        <item name="colorError">@color/color_error</item>
+        <item name="colorOnError">@color/texto_sobre_color</item>
+        <item name="colorControlActivated">@color/color_primario</item>
+        <item name="colorControlHighlight">@color/ripple</item>
 
-    <!-- Controles UI -->
-    <item name="android:colorControlResaltado">@color/ripple</item>
-    <item name="colorControlActivado">@color/color_primario</item>
-    <item name="colorDivisor">@color/divisor</item>
+        <!-- Barra de estado -->
+        <item name="android:statusBarColor">@color/color_primario_oscuro</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
+    </style>
 
-    <!-- Botones -->
-    <item name="estiloBoton">@style/Boton.Primario</item>
-</style>
+    <!-- Estilo para botones primarios -->
+    <style name="Boton.Primario" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@color/color_primario</item>
+        <item name="android:textColor">@color/texto_sobre_color</item>
+        <item name="cornerRadius">8dp</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
 
-<style name="Boton.Primario" parent="Widget.MaterialComponents.Button">
-<item name="backgroundTint">@color/color_primario</item>
-<item name="android:textColor">@color/texto_sobre_color</item>
-</style>
+    <!-- Estilo para botones secundarios -->
+    <style name="Boton.Secundario" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="strokeColor">@color/color_secundario</item>
+        <item name="android:textColor">@color/color_secundario</item>
+        <item name="cornerRadius">8dp</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
 
-<style name="Boton.Secundario" parent="Widget.MaterialComponents.Button.OutlinedButton">
-<item name="strokeColor">@color/color_secundario</item>
-<item name="android:textColor">@color/color_secundario</item>
-</style>
->>>>>>> 659aa94513e4e27a1d883ea9b2add7cdac420627
+    <!-- Estilo para botones de texto -->
+    <style name="Boton.Texto" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textColor">@color/color_primario</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
 </resources>

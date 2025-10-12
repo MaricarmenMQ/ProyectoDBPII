@@ -8,8 +8,11 @@ import kotlinx.coroutines.launch
 import com.lvmh.pocketpet.R
 import com.lvmh.pocketpet.presentacion.pantallas.vistamodelo.PresupuestoVerModelo
 import com.lvmh.pocketpet.presentacion.pantallas.vistamodelo.MetaVerModelo
+import com.lvmh.pocketpet.presentacion.pantallas.vistamodelo.EstadisticasPresupuesto
+import com.lvmh.pocketpet.presentacion.pantallas.vistamodelo.EstadisticasMeta
 import androidx.activity.viewModels
-
+import android.widget.TextView
+import android.widget.ProgressBar
 
 @AndroidEntryPoint
 class actividad_estadistica : AppCompatActivity() {
@@ -19,69 +22,121 @@ class actividad_estadistica : AppCompatActivity() {
 
     private val idUsuario = "usuario_123" // Reemplaza con el ID de usuario real
 
+    // Vistas
+    private var textoTotalPresupuestos: TextView? = null
+    private var textoMontoTotal: TextView? = null
+    private var textoTotalGastado: TextView? = null
+    private var barraProgresoPresupuesto: ProgressBar? = null
+    private var textoPorcentajePresupuesto: TextView? = null
+
+    private var textoTotalMetas: TextView? = null
+    private var textoMetasCompletadas: TextView? = null
+    private var textoTasaCumplimiento: TextView? = null
+    private var barraProgresoMetas: ProgressBar? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.actividad_estadistica)
 
+        inicializarVistas()
         configurarInterfaz()
         cargarEstadisticas()
     }
 
+    private fun inicializarVistas() {
+        textoTotalPresupuestos = findViewById(R.id.textoTotalPresupuestos)
+        textoMontoTotal = findViewById(R.id.textoMontoTotal)
+        textoTotalGastado = findViewById(R.id.textoTotalGastado)
+        barraProgresoPresupuesto = findViewById(R.id.barraProgresoPresupuesto)
+        textoPorcentajePresupuesto = findViewById(R.id.textoPorcentajePresupuesto)
+
+        textoTotalMetas = findViewById(R.id.textoTotalMetas)
+        textoMetasCompletadas = findViewById(R.id.textoMetasCompletadas)
+        textoTasaCumplimiento = findViewById(R.id.textoTasaCumplimiento)
+        barraProgresoMetas = findViewById(R.id.barraProgresoMetas)
+    }
+
     private fun configurarInterfaz() {
         setSupportActionBar(findViewById(R.id.toolbar))
-        supportActionBar?.title = "Estadisticas"
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.apply {
+            title = getString(R.string.titulo_estadisticas)
+            setDisplayHomeAsUpEnabled(true)
+        }
     }
 
     private fun cargarEstadisticas() {
+        cargarEstadisticasPresupuesto()
+        cargarEstadisticasMetas()
+    }
+
+    private fun cargarEstadisticasPresupuesto() {
         lifecycleScope.launch {
             presupuestoVerModelo.cargar_estadisticas_presupuesto(idUsuario)
             presupuestoVerModelo.estadisticasPresupuesto.collect { estadisticas ->
                 actualizarUIPresupuesto(estadisticas)
             }
         }
+    }
 
+    private fun cargarEstadisticasMetas() {
         lifecycleScope.launch {
-            MetaVerModelo.cargarEstadisticasMetas(idUsuario)
-            MetaVerModelo.estadisticasMeta.collect { estadisticas ->
+            metaVerModelo.cargarEstadisticasMetas(idUsuario)
+            metaVerModelo.estadisticasMetas.collect { estadisticas ->
                 actualizarUIMeta(estadisticas)
             }
         }
     }
 
-    private fun actualizarUIPresupuesto(estadisticas: com.lvmh.pocketpet.presentacion.pantallas.vistamodelo.EstadisticasPresupuesto?) {
+    private fun actualizarUIPresupuesto(estadisticas: EstadisticasPresupuesto?) {
         estadisticas?.let {
-            findViewById<android.widget.TextView>(R.id.textoTotalPresupuestos)?.text =
-                "${it.totalPresupuestos} presupuestos"
+            textoTotalPresupuestos?.text = getString(
+                R.string.presupuestos_cantidad,
+                it.total_presupuestos
+            )
 
-            findViewById<android.widget.TextView>(R.id.textoMontoTotal)?.text =
-                "$${String.format("%.2f", it.montoTotal)}"
+            textoMontoTotal?.text = getString(
+                R.string.moneda_soles,
+                String.format("%.2f", it.monto_total)
+            )
 
-            findViewById<android.widget.TextView>(R.id.textoTotalGastado)?.text =
-                "$${String.format("%.2f", it.totalGastado)}"
+            textoTotalGastado?.text = getString(
+                R.string.gastado_cantidad,
+                String.format("%.2f", it.gastado_total)
+            )
 
-            findViewById<android.widget.ProgressBar>(R.id.barraProgresoPresupuesto)?.progress =
-                it.porcentajeUsado.toInt()
+            barraProgresoPresupuesto?.apply {
+                progress = it.porcentaje_usado.toInt()
+                max = 100
+            }
 
-            findViewById<android.widget.TextView>(R.id.textoPorcentajePresupuesto)?.text =
-                "${String.format("%.1f", it.porcentajeUsado)}% gastado"
+            textoPorcentajePresupuesto?.text = getString(
+                R.string.porcentaje_gastado,
+                String.format("%.1f", it.porcentaje_usado)
+            )
         }
     }
 
-    private fun actualizarUIMeta(estadisticas: com.lvmh.pocketpet.presentacion.pantallas.vistamodelo.EstadisticasMeta?) {
+    private fun actualizarUIMeta(estadisticas: EstadisticasMeta?) {
         estadisticas?.let {
-            // Actualizar vistas con estadisticas de metas
-            findViewById<android.widget.TextView>(R.id.textoTotalMetas)?.text =
-                "${it.totalMetas} metas"
+            textoTotalMetas?.text = getString(
+                R.string.metas_cantidad,
+                it.totalMetas
+            )
 
-            findViewById<android.widget.TextView>(R.id.textoMetasCompletadas)?.text =
-                "${it.metasCompletadas} completadas"
+            textoMetasCompletadas?.text = getString(
+                R.string.metas_completadas_cantidad,
+                it.metasCompletadas
+            )
 
-            findViewById<android.widget.TextView>(R.id.textoTasaCumplimiento)?.text =
-                "${String.format("%.1f", it.tasaCumplimiento)}%"
+            textoTasaCumplimiento?.text = getString(
+                R.string.porcentaje,
+                String.format("%.1f", it.tasaCompletado)
+            )
 
-            findViewById<android.widget.ProgressBar>(R.id.barraProgresoMetas)?.progress =
-                it.tasaCumplimiento.toInt()
+            barraProgresoMetas?.apply {
+                progress = it.tasaCompletado.toInt()
+                max = 100
+            }
         }
     }
 
@@ -90,4 +145,3 @@ class actividad_estadistica : AppCompatActivity() {
         return true
     }
 }
-

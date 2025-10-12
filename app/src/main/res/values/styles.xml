@@ -1,236 +1,269 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Textos -->
-    <style name="Texto.Titulo">
+
+    <!-- ==================== TEXTOS ==================== -->
+    <style name="TextoTitulo">
         <item name="android:textSize">24sp</item>
-        <item name="android:textColor">@color/texto_primary</item>
+        <item name="android:textColor">@color/texto_primario</item>
         <item name="fontFamily">sans-serif-medium</item>
     </style>
 
-    <style name="Texto.Subtitulo">
+    <style name="TextoSubtitulo">
         <item name="android:textSize">18sp</item>
         <item name="android:textColor">@color/texto_primario</item>
         <item name="fontFamily">sans-serif-medium</item>
     </style>
 
-    <style name="Texto.Cuerpo">
+    <style name="TextoCuerpo">
         <item name="android:textSize">16sp</item>
         <item name="android:textColor">@color/texto_primario</item>
     </style>
 
-    <style name="Texto.Cuerpo.Secundario">
+    <style name="TextoCuerpoSecundario">
+        <item name="android:textSize">16sp</item>
         <item name="android:textColor">@color/texto_secundario</item>
     </style>
 
-    <style name="Texto.Pequeño">
+    <style name="TextoPequeno">
         <item name="android:textSize">14sp</item>
         <item name="android:textColor">@color/texto_secundario</item>
     </style>
 
-    <style name="Texto.Monto">
+    <style name="TextoMonto">
         <item name="android:textSize">32sp</item>
         <item name="android:textColor">@color/texto_primario</item>
         <item name="fontFamily">sans-serif-medium</item>
     </style>
 
-    <style name="Texto.Monto.Ingreso">
+    <style name="TextoMontoIngreso">
+        <item name="android:textSize">32sp</item>
         <item name="android:textColor">@color/color_ingreso</item>
+        <item name="fontFamily">sans-serif-medium</item>
     </style>
 
-    <style name="Texto.Monto.Gasto">
+    <style name="TextoMontoGasto">
+        <item name="android:textSize">32sp</item>
         <item name="android:textColor">@color/color_gasto</item>
+        <item name="fontFamily">sans-serif-medium</item>
     </style>
 
-    <style name="Texto.Cambio">
+    <style name="TextoCambio">
         <item name="android:textSize">14sp</item>
         <item name="fontFamily">sans-serif-medium</item>
     </style>
 
-    <style name="Texto.Cambio.Positivo">
+    <style name="TextoCambioPositivo">
+        <item name="android:textSize">14sp</item>
         <item name="android:textColor">@color/color_ingreso</item>
+        <item name="fontFamily">sans-serif-medium</item>
     </style>
 
-    <style name="Texto.Cambio.Negativo">
+    <style name="TextoCambioNegativo">
+        <item name="android:textSize">14sp</item>
         <item name="android:textColor">@color/color_gasto</item>
+        <item name="fontFamily">sans-serif-medium</item>
     </style>
 
-    <!-- Botones -->
-    <style name="Boton.Primario" parent="Widget.Material3.Button">
+    <!-- ==================== BOTONES ==================== -->
+    <style name="BotonPrimario" parent="Widget.MaterialComponents.Button">
         <item name="backgroundTint">@color/color_primario</item>
         <item name="android:textColor">@color/texto_sobre_color</item>
     </style>
 
-    <style name="Boton.Secundario" parent="Widget.Material3.Button.OutlinedButton">
+    <style name="BotonSecundario" parent="Widget.MaterialComponents.Button.OutlinedButton">
         <item name="strokeColor">@color/color_primario</item>
         <item name="android:textColor">@color/color_primario</item>
     </style>
 
-    <style name="Boton.Texto" parent="Widget.MaterialComponents.Button.TextButton">
+    <style name="BotonTexto" parent="Widget.MaterialComponents.Button.TextButton">
         <item name="android:textAllCaps">false</item>
         <item name="android:textColor">@color/color_primario</item>
     </style>
 
-    <style name="Boton.Ingreso" parent="Boton.Primario">
+    <style name="BotonIngreso" parent="Widget.MaterialComponents.Button">
         <item name="backgroundTint">@color/color_ingreso</item>
+        <item name="android:textColor">@color/texto_sobre_color</item>
     </style>
 
-    <style name="Boton.Gasto" parent="Boton.Primario">
+    <style name="BotonGasto" parent="Widget.MaterialComponents.Button">
         <item name="backgroundTint">@color/color_gasto</item>
+        <item name="android:textColor">@color/texto_sobre_color</item>
     </style>
 
-    <!-- Cards -->
-    <style name="Card.Base" parent="Widget.MaterialComponents.CardView">
+    <!-- ==================== CARDS ==================== -->
+    <style name="CardBase" parent="Widget.MaterialComponents.CardView">
         <item name="android:layout_margin">8dp</item>
     </style>
 
-    <style name="Card.Estadistica" parent="Card.Base">
+    <style name="CardEstadistica" parent="Widget.MaterialComponents.CardView">
+        <item name="android:layout_margin">8dp</item>
         <item name="contentPadding">16dp</item>
     </style>
 
-    <style name="Card.Transaccion" parent="Card.Base">
+    <style name="CardTransaccion" parent="Widget.MaterialComponents.CardView">
+        <item name="android:layout_margin">8dp</item>
         <item name="contentPadding">12dp</item>
     </style>
 
-    <style name="Card.Categoria" parent="Card.Base">
+    <style name="CardCategoria" parent="Widget.MaterialComponents.CardView">
+        <item name="android:layout_margin">8dp</item>
         <item name="android:clickable">true</item>
         <item name="android:focusable">true</item>
     </style>
 
-    <style name="Card.Presupuesto" parent="Card.Base">
+    <style name="CardPresupuesto" parent="Widget.MaterialComponents.CardView">
+        <item name="android:layout_margin">8dp</item>
         <item name="contentPadding">16dp</item>
     </style>
 
-    <style name="Card.Meta" parent="Card.Base">
+    <style name="CardMeta" parent="Widget.MaterialComponents.CardView">
+        <item name="android:layout_margin">8dp</item>
         <item name="contentPadding">16dp</item>
         <item name="cardElevation">4dp</item>
     </style>
 
-    <!-- Chips -->
-    <style name="Chip.Periodo" parent="Widget.Material3.ChipGroup">
+    <!-- ==================== CHIPS ==================== -->
+    <style name="ChipPeriodo" parent="Widget.MaterialComponents.Chip.Choice">
         <item name="android:textSize">14sp</item>
     </style>
 
-    <style name="Chip.Categoria" parent="Widget.MaterialComponents.ChipGroup">
+    <style name="ChipCategoria" parent="Widget.MaterialComponents.Chip.Choice">
         <item name="chipIconEnabled">true</item>
         <item name="chipIconSize">20dp</item>
     </style>
 
-    <!-- Barra progreso -->
+    <!-- ==================== BARRA PROGRESO ==================== -->
     <style name="BarraProgreso">
         <item name="android:layout_height">8dp</item>
         <item name="android:progressDrawable">@drawable/progress_bar</item>
     </style>
 
-    <style name="BarraProgreso.Verde">
+    <style name="BarraProgresoVerde">
+        <item name="android:layout_height">8dp</item>
+        <item name="android:progressDrawable">@drawable/progress_bar</item>
         <item name="android:progressTint">@color/presupuesto_bajo</item>
     </style>
 
-    <style name="BarraProgreso.Amarillo">
+    <style name="BarraProgresoAmarillo">
+        <item name="android:layout_height">8dp</item>
+        <item name="android:progressDrawable">@drawable/progress_bar</item>
         <item name="android:progressTint">@color/presupuesto_medio</item>
     </style>
 
-    <style name="BarraProgreso.Rojo">
+    <style name="BarraProgresoRojo">
+        <item name="android:layout_height">8dp</item>
+        <item name="android:progressDrawable">@drawable/progress_bar</item>
         <item name="android:progressTint">@color/presupuesto_alto</item>
     </style>
 
-    <!-- Íconos -->
-    <style name="Icono.Categoria">
+    <!-- ==================== ICONOS ==================== -->
+    <style name="IconoCategoria">
         <item name="android:layout_width">40dp</item>
         <item name="android:layout_height">40dp</item>
         <item name="android:padding">8dp</item>
     </style>
 
-    <style name="Icono.Pequeno">
+    <style name="IconoPequeno">
         <item name="android:layout_width">24dp</item>
         <item name="android:layout_height">24dp</item>
     </style>
 
-    <style name="Icono.Grande">
+    <style name="IconoGrande">
         <item name="android:layout_width">56dp</item>
         <item name="android:layout_height">56dp</item>
         <item name="android:padding">12dp</item>
     </style>
 
-    <!-- Divisores -->
+    <!-- ==================== DIVISORES ==================== -->
     <style name="Divisor">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">1dp</item>
         <item name="android:background">@color/divisor</item>
     </style>
 
-    <style name="Divisor.Vertical">
+    <style name="DivisorVertical">
         <item name="android:layout_width">1dp</item>
         <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/divisor</item>
     </style>
 
-    <!-- Contenedores -->
-    <style name="Contenedor.Scroll">
+    <!-- ==================== CONTENEDORES ==================== -->
+    <style name="ContenedorScroll">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:fillViewport">true</item>
     </style>
 
-    <style name="Contenedor.Columna">
+    <style name="ContenedorColumna">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:orientation">vertical</item>
         <item name="android:padding">16dp</item>
     </style>
 
-    <style name="Contenedor.Fila">
+    <style name="ContenedorFila">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:orientation">horizontal</item>
     </style>
 
-    <!-- Inputs -->
-    <style name="Input.Base" parent="Widget.Design.TextInputLayout">
+    <!-- ==================== INPUTS ==================== -->
+    <style name="InputBase" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="android:layout_marginTop">8dp</item>
         <item name="android:layout_marginBottom">8dp</item>
     </style>
 
-    <style name="Input.Monto" parent="Input.Base">
+    <style name="InputMonto" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
         <item name="prefixText">S/ </item>
     </style>
 
-    <!-- Diálogos -->
-    <style name="Dialog.Base" parent="Theme.AppCompat.Dialog">
+    <!-- ==================== DIALOGOS ==================== -->
+    <style name="DialogBase" parent="Theme.AppCompat.Dialog">
         <item name="android:padding">24dp</item>
     </style>
 
-    <!-- Bottom Sheet -->
-    <style name="BottomSheet.Base" parent="Widget.Material3.BottomSheet">
+    <!-- ==================== BOTTOM SHEET ==================== -->
+    <style name="BottomSheetBase" parent="Widget.MaterialComponents.BottomSheet">
         <item name="android:padding">16dp</item>
     </style>
 
-    <!-- Badges -->
-    <style name="Badge.Pequeño">
+    <!-- ==================== BADGES ==================== -->
+    <style name="BadgePequeno">
         <item name="android:layout_width">6dp</item>
         <item name="android:layout_height">6dp</item>
         <item name="android:background">@drawable/badge_circle</item>
     </style>
 
-    <style name="Badge.Ingreso">
+    <style name="BadgeIngreso">
+        <item name="android:layout_width">6dp</item>
+        <item name="android:layout_height">6dp</item>
+        <item name="android:background">@drawable/badge_circle</item>
         <item name="android:backgroundTint">@color/color_ingreso</item>
     </style>
 
-    <style name="Badge.Gasto">
+    <style name="BadgeGasto">
+        <item name="android:layout_width">6dp</item>
+        <item name="android:layout_height">6dp</item>
+        <item name="android:background">@drawable/badge_circle</item>
         <item name="android:backgroundTint">@color/color_gasto</item>
     </style>
 
-    <!-- Tabs -->
-    <style name="Tab.Base" parent="Widget.MaterialComponents.TabLayout">
+    <!-- ==================== TABS ==================== -->
+    <style name="TabBase" parent="Widget.MaterialComponents.TabLayout">
         <item name="tabIndicatorColor">@color/color_primario</item>
         <item name="tabSelectedTextColor">@color/color_primario</item>
         <item name="tabTextColor">@color/texto_secundario</item>
         <item name="tabIndicatorHeight">3dp</item>
     </style>
 
-    <!-- RecyclerView -->
-    <style name="RecyclerView.Base">
+    <!-- ==================== RECYCLERVIEW ==================== -->
+    <style name="RecyclerViewBase">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:clipToPadding">false</item>
         <item name="android:padding">8dp</item>
     </style>
+
 </resources>

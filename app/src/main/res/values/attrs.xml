@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Atributos personalizados para la barra de progreso -->
+    <declare-styleable name="barra_progreso">
+        <attr name="progreso" format="integer" />
+        <attr name="progresoMaximo" format="integer" />
+        <attr name="mostrarPorcentaje" format="boolean" />
+        <attr name="mostrarEtiqueta" format="boolean" />
+        <attr name="etiqueta" format="string" />
+        <attr name="estiloProgreso" format="enum">
+            <enum name="lineal" value="0" />
+            <enum name="degradado" value="1" />
+            <enum name="segmentada" value="2" />
+        </attr>
+    </declare-styleable>
+
+    <!-- Atributos personalizados para el gráfico -->
+    <declare-styleable name="ver_grafico">
+        <attr name="tipoGrafico" format="enum">
+            <enum name="barra" value="0" />
+            <enum name="linea" value="1" />
+            <enum name="circular" value="2" />
+        </attr>
+    </declare-styleable>
+</resources>

@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import dagger.hilt.android.AndroidEntryPoint
 import com.lvmh.pocketpet.R
-import com.lvmh.pocketpet.data.local.entidades.categoria_entidad
+import com.lvmh.pocketpet.data.local.entidades
 
 @AndroidEntryPoint
 class CategoryStatsActivity : AppCompatActivity() {

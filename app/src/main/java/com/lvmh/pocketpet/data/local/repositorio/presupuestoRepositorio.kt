@@ -2,7 +2,7 @@ package com.lvmh.pocketpet.data.local.repositorio
 
 import com.lvmh.pocketpet.data.local.entidades.periodo_presupuesto
 import com.lvmh.pocketpet.data.local.entidades.presupuesto_entidad
-import com.lvmh.pocketpet.data.local.oad.presupuestOad
+import com.lvmh.pocketpet.data.local.oad.presupuestoOad
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import java.time.LocalDateTime
@@ -11,7 +11,7 @@ import javax.inject.Singleton
 
 @Singleton
 class presupuestoRepositorio @Inject constructor(
-    private val presupuestoOad: presupuestOad
+    private val presupuestoOad: presupuestoOad
 ) {
     suspend fun crear_presupuesto(presupuesto: presupuesto_entidad) {
         presupuestoOad.insertar(presupuesto)

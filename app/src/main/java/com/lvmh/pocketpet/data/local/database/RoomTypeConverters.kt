@@ -1,7 +1,7 @@
 package com.lvmh.pocketpet.data.local.database
 
 import androidx.room.TypeConverter
-import com.lvmh.pocketpet.data.local.entidades.
+
 import com.lvmh.pocketpet.data.local.entidades.CategoriaMeta
 import com.lvmh.pocketpet.data.local.entidades.EstadoMeta
 import com.lvmh.pocketpet.data.local.entidades.periodo_presupuesto
@@ -62,7 +62,7 @@ class RoomTypeConverter{
     fun aCategoriaMeta(valor: String?): CategoriaMeta? {
         return valor?.let { CategoriaMeta.valueOf(it) }
     }
-
+    /*
     @TypeConverter
     fun desdeTipoMascota(valor: TipoMascota?): String? {
         return valor?.name
@@ -122,4 +122,5 @@ class RoomTypeConverter{
     fun aRarezaLogro(valor: String?): RarezaLogro? {
         return valor?.let { RarezaLogro.valueOf(it) }
     }
+    */
 }

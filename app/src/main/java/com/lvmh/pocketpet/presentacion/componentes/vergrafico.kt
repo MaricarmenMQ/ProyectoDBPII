@@ -12,7 +12,7 @@ import com.lvmh.pocketpet.R
 import kotlin.math.max
 import kotlin.math.min
 
-class vergrafico @JvmOverloads constructor(
+class ver_grafico @JvmOverloads constructor(
     contexto: Context,
     atributos: AttributeSet? = null,
     estiloDefecto: Int = 0
@@ -42,18 +42,18 @@ class vergrafico @JvmOverloads constructor(
 
     init {
         pinturaTexto.apply {
-            color = Color.BLACK
+            color = ContextCompat.getColor(contexto, R.color.texto_primario)
             textSize = 40f
             textAlign = Paint.Align.CENTER
         }
 
         pinturaCuadricula.apply {
-            color = Color.LTGRAY
+            color = ContextCompat.getColor(contexto, R.color.grafico_grid)
             strokeWidth = 1f
         }
 
         pinturaEje.apply {
-            color = Color.BLACK
+            color = ContextCompat.getColor(contexto, R.color.texto_primario)
             strokeWidth = 2f
         }
     }
@@ -98,6 +98,7 @@ class vergrafico @JvmOverloads constructor(
         val anchoBarra = ancho / (datos.size * 1.5f)
         val espacio = anchoBarra * 0.5f
 
+        pinturaEje.color = ContextCompat.getColor(context, R.color.texto_primario)
         canvas.drawLine(margen, alto + margen, ancho + margen, alto + margen, pinturaEje)
         canvas.drawLine(margen, margen, margen, alto + margen, pinturaEje)
 
@@ -110,6 +111,7 @@ class vergrafico @JvmOverloads constructor(
             canvas.drawRect(x, y, x + anchoBarra, alto + margen, pinturaBarra)
 
             pinturaTexto.textSize = 30f
+            pinturaTexto.color = ContextCompat.getColor(context, R.color.texto_primario)
             canvas.drawText(
                 dato.etiqueta,
                 x + anchoBarra / 2,
@@ -135,8 +137,10 @@ class vergrafico @JvmOverloads constructor(
 
         val pasoX = ancho / (datos.size - 1)
 
-        pinturaBarra.color = Color.BLUE
-        pinturaBarra.strokeWidth = 4f
+        pinturaBarra.apply {
+            color = ContextCompat.getColor(context, R.color.color_primario)
+            strokeWidth = 4f
+        }
 
         for (i in 0 until datos.size - 1) {
             val x1 = margen + i * pasoX
@@ -184,7 +188,7 @@ class vergrafico @JvmOverloads constructor(
 
     private fun dibujarEstadoVacio(canvas: Canvas) {
         pinturaTexto.apply {
-            color = Color.GRAY
+            color = ContextCompat.getColor(context, R.color.texto_secundario)
             textSize = 50f
         }
         canvas.drawText("Sin datos", width / 2f, height / 2f, pinturaTexto)

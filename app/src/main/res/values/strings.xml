@@ -82,6 +82,21 @@
     <string name="crear_presupuesto">Crear Presupuesto</string>
     <string name="editar_presupuesto">Editar Presupuesto</string>
 
+    <!-- Estadísticas - Presupuestos -->
+    <string name="presupuestos_cantidad">%1$d presupuestos</string>
+    <string name="gastado_cantidad">$%1$s</string>
+    <string name="porcentaje_gastado">%1$s%% gastado</string>
+
+    <!-- Estadísticas - Metas -->
+    <string name="metas_cantidad">%1$d metas</string>
+    <string name="metas_completadas_cantidad">%1$d completadas</string>
+    <string name="titulo_estadistica_presupuesto">Estadísticas de Presupuestos</string>
+    <string name="titulo_estadistica_metas">Estadísticas de Metas</string>
+    <string name="total_presupuestos">Total de Presupuestos</string>
+    <string name="monto_total">Monto Total</string>
+    <string name="total_gastado">Total Gastado</string>
+    <string name="tasa_cumplimiento">Tasa de Cumplimiento</string>
+    <string name="sin_metas">Sin metas</string>
     <!-- Metas -->
     <string name="titulo_metas">Metas de Ahorro</string>
     <string name="agregar_meta">Agregar Meta</string>
@@ -110,7 +125,6 @@
 
     <!-- Reportes -->
     <string name="titulo_reportes">Reportes</string>
-    <string name="tipo_reporte">Tipo de reporte</string>
     <string name="resumen">Resumen</string>
     <string name="detallado">Detallado</string>
     <string name="comparativo">Comparativo</string>
@@ -183,4 +197,26 @@
     <string name="octubre">Octubre</string>
     <string name="noviembre">Noviembre</string>
     <string name="diciembre">Diciembre</string>
+    <!-- Reportes - Tipos -->
+    <string name="tipo_reporte">Tipo de Reporte</string>
+    <string name="tipo_ingresos_gastos">Ingresos vs Gastos</string>
+    <string name="tipo_por_categoria">Por Categoría</string>
+    <string name="tipo_por_cuenta">Por Cuenta</string>
+    <string name="tipo_presupuesto_real">Presupuesto vs Real</string>
+
+    <!-- Reportes - Períodos -->
+    <string name="este_trimestre">Este Trimestre</string>
+    <string name="este_ano">Este Año</string>
+
+    <!-- Reportes - Botones -->
+    <string name="exportar_reporte">Exportar Reporte</string>
+    <string name="vista_previa">Vista Previa</string>
+
+    <!-- Strings para Bienvenida -->
+    <string name="bienvenido_titulo">¡Bienvenido a PocketPet!</string>
+    <string name="bienvenido_subtitulo">Tu asistente personal de finanzas</string>
+    <!-- Presupuestos -->
+    <string name="empty_state">Estado vacío</string>
+    <string name="sin_presupuestos">Sin presupuestos</string>
+    <string name="crea_primer_presupuesto">Crea tu primer presupuesto</string>
 </resources>

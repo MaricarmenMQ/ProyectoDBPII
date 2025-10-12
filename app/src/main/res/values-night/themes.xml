@@ -1,39 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources
-    <!-- Colores principales -->
-    <item name="colorPrimario">@color/color_primario</item>
-    <item name="colorPrimarioOscuro">@color/color_primario_oscuro</item>
-    <item name="colorSecundario">@color/color_secundario</item>
-    <item name="colorAcento">@color/color_acento</item>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- Fondos -->
-    <item name="android:colorFondo">@color/fondo_primario</item>
-    <item name="colorSuperficie">@color/fondo_card</item>
+    <!-- Tema oscuro de la aplicación -->
+    <style name="Theme.PocketPet" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Colores principales -->
+        <item name="colorPrimary">@color/color_primario_night</item>
+        <item name="colorPrimaryVariant">@color/color_primario_oscuro_night</item>
+        <item name="colorSecondary">@color/color_secundario_night</item>
+        <item name="colorAccent">@color/color_acento_night</item>
 
-    <!-- Texto -->
-    <item name="android:textoColorPrincipal">@color/texto_primario</item>
-    <item name="android:textoColorSecundario">@color/texto_secundario</item>
+        <!-- Colores de superficie y fondo -->
+        <item name="android:colorBackground">@color/fondo_primario_night</item>
+        <item name="colorSurface">@color/fondo_card_night</item>
 
-    <!-- Estados -->
-    <item name="colorError">@color/color_error</item>
-    <item name="colorTextoSobreError">@color/texto_sobre_color</item>
+        <!-- Colores de texto -->
+        <item name="android:textColorPrimary">@color/texto_primario_night</item>
+        <item name="android:textColorSecondary">@color/texto_secundario_night</item>
+        <item name="colorOnPrimary">@color/texto_sobre_color</item>
+        <item name="colorOnSurface">@color/texto_primario_night</item>
 
-    <!-- Controles UI -->
-    <item name="android:colorControlResaltado">@color/ripple</item>
-    <item name="colorControlActivado">@color/color_primario</item>
-    <item name="colorDivisor">@color/divisor</item>
+        <!-- Estados y controles -->
+        <item name="colorError">@color/color_error_night</item>
+        <item name="colorOnError">@color/texto_sobre_color</item>
+        <item name="colorControlActivated">@color/color_primario_night</item>
+        <item name="colorControlHighlight">@color/ripple_night</item>
 
-    <!-- Botones -->
-    <item name="estiloBoton">@style/Boton.Primario</item>
+        <!-- Barra de estado -->
+        <item name="android:statusBarColor">@color/fondo_primario_night</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
     </style>
 
+    <!-- Estilo para botones primarios (heredado del tema principal) -->
     <style name="Boton.Primario" parent="Widget.MaterialComponents.Button">
-    <item name="backgroundTint">@color/color_primario</item>
-    <item name="android:textColor">@color/texto_sobre_color</item>
+        <item name="backgroundTint">@color/color_primario_night</item>
+        <item name="android:textColor">@color/texto_sobre_color</item>
+        <item name="cornerRadius">8dp</item>
+        <item name="android:textAllCaps">false</item>
     </style>
 
+    <!-- Estilo para botones secundarios (heredado del tema principal) -->
     <style name="Boton.Secundario" parent="Widget.MaterialComponents.Button.OutlinedButton">
-    <item name="strokeColor">@color/color_secundario</item>
-    <item name="android:textColor">@color/color_secundario</item>
+        <item name="strokeColor">@color/color_secundario_night</item>
+        <item name="android:textColor">@color/color_secundario_night</item>
+        <item name="cornerRadius">8dp</item>
+        <item name="android:textAllCaps">false</item>
     </style>
+
 </resources>
