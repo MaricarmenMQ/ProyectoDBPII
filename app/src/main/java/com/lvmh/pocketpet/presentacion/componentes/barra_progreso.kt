@@ -1,5 +1,10 @@
 package com.lvmh.pocketpet.presentacion.componentes
 
+<<<<<<< HEAD
+=======
+package com.financepet.presentacion.componentes
+
+>>>>>>> e449c15dce5791caa58667977e43151af2dbc51e
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
@@ -8,11 +13,22 @@ import android.graphics.RectF
 import android.util.AttributeSet
 import android.view.View
 import androidx.core.content.ContextCompat
+<<<<<<< HEAD
 import com.lvmh.pocketpet.R
 import kotlin.math.ceil
 
 
 class barra_progreso @JvmOverloads constructor(
+=======
+import com.financepet.R
+import kotlin.math.ceil
+
+/**
+ * BarraDeProgresoPersonalizada - Componente personalizado para mostrar barras de progreso avanzadas
+ * Soporta animación, colores dinámicos y etiquetas
+ */
+class BarraDeProgresoPersonalizada @JvmOverloads constructor(
+>>>>>>> e449c15dce5791caa58667977e43151af2dbc51e
     contexto: Context,
     atributos: AttributeSet? = null,
     estiloDefecto: Int = 0
@@ -36,9 +52,15 @@ class barra_progreso @JvmOverloads constructor(
     private val alturaEtiqueta = 30f
 
     enum class EstiloProgreso {
+<<<<<<< HEAD
         LINEAL,
         DEGRADADO,
         SEGMENTADA
+=======
+        LINEAL,     // Barra simple
+        DEGRADADO,  // Barra con degradado
+        SEGMENTADA  // Barra segmentada
+>>>>>>> e449c15dce5791caa58667977e43151af2dbc51e
     }
 
     private var estiloProgreso = EstiloProgreso.LINEAL
@@ -51,7 +73,11 @@ class barra_progreso @JvmOverloads constructor(
         }
 
         pinturaProgreso.apply {
+<<<<<<< HEAD
             color = ContextCompat.getColor(contexto, R.color.color_primario)
+=======
+            color = ContextCompat.getColor(contexto, R.color.colorPrimary)
+>>>>>>> e449c15dce5791caa58667977e43151af2dbc51e
             style = Paint.Style.FILL
         }
 
@@ -60,6 +86,11 @@ class barra_progreso @JvmOverloads constructor(
             textSize = 36f
             textAlign = Paint.Align.CENTER
         }
+<<<<<<< HEAD
+=======
+
+        // Leer atributos personalizados
+>>>>>>> e449c15dce5791caa58667977e43151af2dbc51e
         atributos?.let { leerAtributos(it) }
     }
 
@@ -79,37 +110,80 @@ class barra_progreso @JvmOverloads constructor(
         }
     }
 
+<<<<<<< HEAD
+=======
+    /**
+     * Establece el progreso actual
+     */
+>>>>>>> e449c15dce5791caa58667977e43151af2dbc51e
     fun establecerProgreso(nuevoProgreso: Int) {
         progreso = nuevoProgreso.coerceIn(0, progresoMaximo)
         invalidate()
     }
 
+<<<<<<< HEAD
+=======
+    /**
+     * Anima el progreso hacia un valor objetivo
+     */
+>>>>>>> e449c15dce5791caa58667977e43151af2dbc51e
     fun animarProgreso(objetivo: Int) {
         progresoObjetivo = objetivo.coerceIn(0, progresoMaximo)
         tiempoInicio = System.currentTimeMillis()
         animarFotograma()
     }
 
+<<<<<<< HEAD
+=======
+    /**
+     * Establece el progreso máximo
+     */
+>>>>>>> e449c15dce5791caa58667977e43151af2dbc51e
     fun establecerProgresoMaximo(max: Int) {
         progresoMaximo = max.coerceAtLeast(1)
         progreso = progreso.coerceIn(0, progresoMaximo)
         invalidate()
     }
 
+<<<<<<< HEAD
+=======
+    /**
+     * Establece la etiqueta de la barra
+     */
+>>>>>>> e449c15dce5791caa58667977e43151af2dbc51e
     fun establecerEtiqueta(texto: String) {
         etiqueta = texto
         invalidate()
     }
 
+<<<<<<< HEAD
+=======
+    /**
+     * Establece el color del progreso
+     */
+>>>>>>> e449c15dce5791caa58667977e43151af2dbc51e
     fun establecerColorProgreso(color: Int) {
         pinturaProgreso.color = color
         invalidate()
     }
 
+<<<<<<< HEAD
+=======
+    /**
+     * Establece el color del fondo
+     */
+>>>>>>> e449c15dce5791caa58667977e43151af2dbc51e
     fun establecerColorFondo(color: Int) {
         pinturaFondo.color = color
         invalidate()
     }
+<<<<<<< HEAD
+=======
+
+    /**
+     * Establece el estilo de progreso
+     */
+>>>>>>> e449c15dce5791caa58667977e43151af2dbc51e
     fun establecerEstiloProgreso(estilo: EstiloProgreso) {
         estiloProgreso = estilo
         invalidate()
@@ -127,6 +201,10 @@ class barra_progreso @JvmOverloads constructor(
             canvas.drawText(etiqueta, width / 2f, alturaEtiqueta, pinturaTexto)
         }
 
+<<<<<<< HEAD
+=======
+        // Dibujar fondo
+>>>>>>> e449c15dce5791caa58667977e43151af2dbc51e
         val rectFondo = RectF(
             relleno,
             inicioY,
@@ -135,6 +213,10 @@ class barra_progreso @JvmOverloads constructor(
         )
         canvas.drawRoundRect(rectFondo, radioEsquina, radioEsquina, pinturaFondo)
 
+<<<<<<< HEAD
+=======
+        // Dibujar progreso
+>>>>>>> e449c15dce5791caa58667977e43151af2dbc51e
         val anchoProgreso = ((progreso.toFloat() / progresoMaximo) * (width - 2 * relleno))
         val rectProgreso = RectF(
             relleno,
@@ -217,4 +299,24 @@ class barra_progreso @JvmOverloads constructor(
     }
 }
 
+<<<<<<< HEAD
+=======
+/**
+ * StyleableRes para BarraDeProgresoPersonalizada (agregar a attrs.xml)
+ */
+/*
+<declare-styleable name="CustomProgressBar">
+    <attr name="progress" format="integer" />
+    <attr name="maxProgress" format="integer" />
+    <attr name="showPercentage" format="boolean" />
+    <attr name="showLabel" format="boolean" />
+    <attr name="label" format="string" />
+    <attr name="progressStyle" format="enum">
+        <enum name="linear" value="0" />
+        <enum name="gradient" value="1" />
+        <enum name="segmented" value="2" />
+    </attr>
+</declare-styleable>
+*/
+>>>>>>> e449c15dce5791caa58667977e43151af2dbc51e
 

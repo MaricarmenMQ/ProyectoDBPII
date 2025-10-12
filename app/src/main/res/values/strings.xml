@@ -1,4 +1,5 @@
 <resources>
+    <string name="app_name">PocketPet</string>
     <!-- General -->
     <string name="nombre_app">PocketPet</string>
     <string name="aceptar">Aceptar</string>

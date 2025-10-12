@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+<<<<<<< HEAD
+
+    <style name="Theme.PocketPet" parent="android:Theme.Material.Light.NoActionBar" />
+=======
     <!-- Colores principales -->
     <item name="colorPrimario">@color/color_primario</item>
     <item name="colorPrimarioOscuro">@color/color_primario_oscuro</item>
@@ -36,4 +40,5 @@
 <item name="strokeColor">@color/color_secundario</item>
 <item name="android:textColor">@color/color_secundario</item>
 </style>
+>>>>>>> 659aa94513e4e27a1d883ea9b2add7cdac420627
 </resources>

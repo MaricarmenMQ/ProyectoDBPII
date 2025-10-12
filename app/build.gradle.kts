@@ -1,19 +1,21 @@
-
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+
     alias(libs.plugins.hilt.android)
     alias(libs.plugins.google.devtools.ksp)
 }
 
 android {
     namespace = "com.lvmh.pocketpet"
+    compileSdk = 36
     compileSdk = 35
 
     defaultConfig {
         applicationId = "com.lvmh.pocketpet"
         minSdk = 27
+        targetSdk = 36
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
@@ -29,6 +31,13 @@ android {
                 "proguard-rules.pro"
             )
         }
+    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = "11"
     }
 
     compileOptions {
@@ -46,12 +55,14 @@ android {
 }
 
 dependencies {
+
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
     // Core Android
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation("androidx.appcompat:appcompat:1.6.1")
 
-    // Compose
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
@@ -59,7 +70,6 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
 
-    // Material Design
     implementation("com.google.android.material:material:1.11.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
 
