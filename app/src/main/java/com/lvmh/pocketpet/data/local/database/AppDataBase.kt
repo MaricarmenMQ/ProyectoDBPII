@@ -23,7 +23,7 @@ import com.lvmh.pocketpet.data.local.oad.cuentaOad
 import com.lvmh.pocketpet.data.local.oad.logroOad
 
 @Database(
-    entidades = [
+    entities = [
         transaccion_entidad::class,
         categoria_entidad::class,
         cuenta_entidad::class,
@@ -36,7 +36,7 @@ import com.lvmh.pocketpet.data.local.oad.logroOad
     exportSchema = true
 )
 @TypeConverters(RoomTypeConverter::class)
-abstract class AppDataBase : RoomDatabase() {
+abstract class AppDatabase : RoomDatabase() {
 
     abstract fun transaccionOad(): transaccionOad
     abstract fun categoriaOad(): categoriaOad
@@ -48,21 +48,21 @@ abstract class AppDataBase : RoomDatabase() {
 
     companion object {
         @Volatile
-        private var instancia: AppDataBase? = null
+        private var instancia: AppDatabase? = null
         private val BLOQUEO = Any()
 
         const val NOMBRE_BASE_DATOS = "PocketPet_database"
 
-        fun obtenerInstancia(context: Context): AppDataBase {
+        fun obtenerInstancia(context: Context): AppDatabase {
             return instancia ?: synchronized(BLOQUEO) {
                 instancia ?: crearBaseDatos(context).also { instancia = it }
             }
         }
 
-        private fun crearBaseDatos(context: Context): AppDataBase {
+        private fun crearBaseDatos(context: Context): AppDatabase {
             return Room.databaseBuilder(
                 context.applicationContext,
-                AppDataBase::class.java,
+                AppDatabase::class.java,
                 NOMBRE_BASE_DATOS
             )
                 .addTypeConverter(RoomTypeConverter())
