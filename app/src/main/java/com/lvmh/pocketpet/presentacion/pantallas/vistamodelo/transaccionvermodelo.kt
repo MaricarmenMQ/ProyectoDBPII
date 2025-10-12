@@ -1,130 +1,165 @@
 package com.lvmh.pocketpet.presentacion.pantallas.vistamodelo
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.lvmh.pocketpet.dominio.modelos.Transaccion
-import com.lvmh.pocketpet.dominio.repositorios.TransaccionRepositorio
-import com.lvmh.pocketpet.dominio.usecases.transacciones.ObtenerTransaccionesCasoUso
+import com.lvmh.pocketpet.data.local.entidades.transaccion_entidad
+import com.lvmh.pocketpet.data.local.repositorio.transaccionRepositorio
+import com.lvmh.pocketpet.data.local.repositorio.cuentaRepositorio
+import com.lvmh.pocketpet.data.local.repositorio.categoriaRepositorio
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import java.util.Calendar
+import javax.inject.Inject
 
-class transaccionvermodelo (
-    private val transaccionRepo: TransaccionRepositorio,
-    private val obtenerTransaccionesCaso: ObtenerTransaccionesCasoUso
+@HiltViewModel
+class TransactionViewModel @Inject constructor(
+    private val transaccion_repositorio: transaccionRepositorio,
+    private val cuenta_repositorio: cuentaRepositorio,
+    private val categoria_repositorio: categoriaRepositorio
 ) : ViewModel() {
 
-    // Balance total
-    private val _balanceTotal = MutableLiveData<Double>()
-    val balanceTotal: LiveData<Double> = _balanceTotal
+    private val _estado_ui = MutableStateFlow<EstadoUiTransaccion>(EstadoUiTransaccion.Inactivo)
+    val estado_ui: StateFlow<EstadoUiTransaccion> = _estado_ui.asStateFlow()
 
-    // Ingresos del mes
-    private val _ingresosMensuales = MutableLiveData<Double>()
-    val ingresosMensuales: LiveData<Double> = _ingresosMensuales
+    private val _lista_transacciones = MutableStateFlow<List<transaccion_entidad>>(emptyList())
+    val lista_transacciones: StateFlow<List<transaccion_entidad>> = _lista_transacciones.asStateFlow()
 
-    // Gastos del mes
-    private val _gastosMensuales = MutableLiveData<Double>()
-    val gastosMensuales: LiveData<Double> = _gastosMensuales
+    private val _transacciones_recientes = MutableStateFlow<List<transaccion_entidad>>(emptyList())
+    val transacciones_recientes: StateFlow<List<transaccion_entidad>> = _transacciones_recientes.asStateFlow()
 
-    // Ahorro (ingresos - gastos)
-    private val _ahorroMensual = MutableLiveData<Double>()
-    val ahorroMensual: LiveData<Double> = _ahorroMensual
+    private val _total_ingresos = MutableStateFlow(0.0)
+    val total_ingresos: StateFlow<Double> = _total_ingresos.asStateFlow()
 
-    // Últimas transacciones
-    private val _transaccionesRecientes = MutableLiveData<List<Transaccion>>()
-    val transaccionesRecientes: LiveData<List<Transaccion>> = _transaccionesRecientes
+    private val _total_gastos = MutableStateFlow(0.0)
+    val total_gastos: StateFlow<Double> = _total_gastos.asStateFlow()
 
-    // Estado de carga
-    private val _cargando = MutableLiveData<Boolean>()
-    val cargando: LiveData<Boolean> = _cargando
+    private val _balance = MutableStateFlow(0.0)
+    val balance: StateFlow<Double> = _balance.asStateFlow()
 
-    // Carga ingresos, gastos y balance del mes
-    fun cargarDatosMensuales() {
+    fun crear_transaccion(
+        tipo: String,
+        monto: Double,
+        categoria_id: Long,
+        cuenta_id: Long,
+        descripcion: String,
+        fecha: Long = System.currentTimeMillis(),
+        imagen_uri: String? = null
+    ) {
+        if (monto <= 0) {
+            _estado_ui.value = EstadoUiTransaccion.Error("El monto debe ser mayor a 0")
+            return
+        }
+
+        if (descripcion.isBlank()) {
+            _estado_ui.value = EstadoUiTransaccion.Error("La descripción es requerida")
+            return
+        }
+
         viewModelScope.launch {
-            _cargando.value = true
             try {
-                val calendario = Calendar.getInstance()
-                val año = calendario.get(Calendar.YEAR)
-                val mes = calendario.get(Calendar.MONTH)
+                _estado_ui.value = EstadoUiTransaccion.Cargando
 
-                calendario.set(año, mes, 1, 0, 0, 0)
-                val inicioMes = calendario.time
+                val transaccion = transaccion_entidad(
+                    tipo = tipo,
+                    monto = monto,
+                    id_categoria = categoria_id,
+                    id_monto = cuenta_id,
+                    descripcion = descripcion,
+                    fecha = fecha,
+                    imagenUri = imagen_uri
+                )
 
-                calendario.set(año, mes, calendario.getActualMaximum(Calendar.DAY_OF_MONTH), 23, 59, 59)
-                val finMes = calendario.time
+                val transaccion_id = transaccion_repositorio.crear_transaccion(transaccion)
 
-                // Obtener transacciones del mes
-                val transacciones = transaccionRepo.obtenerPorRangoDeFecha(inicioMes, finMes)
+                // Actualizar balance de cuenta
+                when (tipo.lowercase()) {
+                    "ingreso" -> cuenta_repositorio.incrementar_balance(cuenta_id.toString(), monto)
+                    "gasto" -> cuenta_repositorio.decrementar_balance(cuenta_id.toString(), monto)
+                }
 
-                val ingresos = transacciones
-                    .filter { it.tipo.equals("income", true) }
-                    .sumOf { it.monto }
+                _estado_ui.value = EstadoUiTransaccion.Exito("Transacción registrada exitosamente")
 
-                val gastos = transacciones
-                    .filter { it.tipo.equals("expense", true) }
-                    .sumOf { it.monto }
-
-                val ahorro = ingresos - gastos
-
-                _ingresosMensuales.value = ingresos
-                _gastosMensuales.value = gastos
-                _ahorroMensual.value = ahorro
-
-                calcularBalanceTotal()
             } catch (e: Exception) {
-                _ingresosMensuales.value = 0.0
-                _gastosMensuales.value = 0.0
-                _ahorroMensual.value = 0.0
-            } finally {
-                _cargando.value = false
+                _estado_ui.value = EstadoUiTransaccion.Error(e.message ?: "Error al crear transacción")
             }
         }
     }
 
-    // Calcula el balance total (todos los movimientos)
-    private suspend fun calcularBalanceTotal() {
-        try {
-            val transacciones = transaccionRepo.obtenerTodas()
-
-            val ingresos = transacciones
-                .filter { it.tipo.equals("income", true) }
-                .sumOf { it.monto }
-
-            val gastos = transacciones
-                .filter { it.tipo.equals("expense", true) }
-                .sumOf { it.monto }
-
-            _balanceTotal.value = ingresos - gastos
-        } catch (e: Exception) {
-            _balanceTotal.value = 0.0
-        }
-    }
-
-    // Carga las últimas 5 transacciones
-    fun cargarTransaccionesRecientes() {
+    fun cargar_transacciones_recientes() {
         viewModelScope.launch {
             try {
-                val lista = transaccionRepo.obtenerRecientes(5)
-                _transaccionesRecientes.value = lista
+                transaccion_repositorio.obtener_transacciones_recientes().collect { transacciones ->
+                    _transacciones_recientes.value = transacciones
+                }
             } catch (e: Exception) {
-                _transaccionesRecientes.value = emptyList()
+                _estado_ui.value = EstadoUiTransaccion.Error(e.message ?: "Error al cargar transacciones")
             }
         }
     }
 
-    // Busca una transacción por su ID
-    suspend fun obtenerTransaccionPorId(id: Long): Transaccion? {
-        return try {
-            transaccionRepo.obtenerPorId(id)
-        } catch (e: Exception) {
-            null
+    fun cargar_transacciones_por_rango(fecha_inicio: Long, fecha_fin: Long) {
+        viewModelScope.launch {
+            try {
+                _estado_ui.value = EstadoUiTransaccion.Cargando
+
+                transaccion_repositorio.obtener_transacciones_por_rango_fechas(fecha_inicio, fecha_fin)
+                    .collect { transacciones ->
+                        _lista_transacciones.value = transacciones
+                        _estado_ui.value = EstadoUiTransaccion.Inactivo
+                    }
+            } catch (e: Exception) {
+                _estado_ui.value = EstadoUiTransaccion.Error(e.message ?: "Error al cargar transacciones")
+            }
         }
     }
 
-    // Refresca todos los datos
-    fun refrescarDatos() {
-        cargarDatosMensuales()
-        cargarTransaccionesRecientes()
+    fun cargar_totales_periodo(fecha_inicio: Long, fecha_fin: Long) {
+        viewModelScope.launch {
+            try {
+                transaccion_repositorio.obtener_total_ingresos(fecha_inicio, fecha_fin).collect { ingresos ->
+                    _total_ingresos.value = ingresos ?: 0.0
+                }
+
+                transaccion_repositorio.obtener_total_gastos(fecha_inicio, fecha_fin).collect { gastos ->
+                    _total_gastos.value = gastos ?: 0.0
+                }
+
+                _balance.value = _total_ingresos.value - _total_gastos.value
+
+            } catch (e: Exception) {
+                _estado_ui.value = EstadoUiTransaccion.Error(e.message ?: "Error al cargar totales")
+            }
+        }
     }
+
+    fun cargar_datos_mes_actual() {
+        val calendario = java.util.Calendar.getInstance()
+        calendario.set(java.util.Calendar.DAY_OF_MONTH, 1)
+        calendario.set(java.util.Calendar.HOUR_OF_DAY, 0)
+        calendario.set(java.util.Calendar.MINUTE, 0)
+        calendario.set(java.util.Calendar.SECOND, 0)
+        val inicio_mes = calendario.timeInMillis
+
+        calendario.set(java.util.Calendar.DAY_OF_MONTH, calendario.getActualMaximum(java.util.Calendar.DAY_OF_MONTH))
+        calendario.set(java.util.Calendar.HOUR_OF_DAY, 23)
+        calendario.set(java.util.Calendar.MINUTE, 59)
+        calendario.set(java.util.Calendar.SECOND, 59)
+        val fin_mes = calendario.timeInMillis
+
+        cargar_transacciones_por_rango(inicio_mes, fin_mes)
+        cargar_totales_periodo(inicio_mes, fin_mes)
+    }
+
+    fun limpiar_estado() {
+        _estado_ui.value = EstadoUiTransaccion.Inactivo
+    }
+}
+
+sealed class EstadoUiTransaccion {
+    object Inactivo : EstadoUiTransaccion()
+    object Cargando : EstadoUiTransaccion()
+    data class Exito(val mensaje: String) : EstadoUiTransaccion()
+    data class Error(val mensaje: String) : EstadoUiTransaccion()
 }
