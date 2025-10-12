@@ -1,4 +1,4 @@
-package com.lvmh.pocketpet.presentacion.vistamodelo
+package com.lvmh.pocketpet.presentacion.pantallas.vistamodelo
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

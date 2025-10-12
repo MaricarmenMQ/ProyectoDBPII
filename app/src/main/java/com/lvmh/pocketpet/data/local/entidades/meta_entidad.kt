@@ -28,7 +28,7 @@ import java.time.LocalDateTime
         Index("estado")
     ]
 )
-data class meta_entidad (
+data class meta_entidad(
     val id: String = "",
     val usuarioId: String = "",
     val categoriaId: String = "",
@@ -41,7 +41,7 @@ data class meta_entidad (
     val prioridad: PrioridadMeta = PrioridadMeta.MEDIA,
     val fechaLimite: LocalDateTime? = null,
     val categoria: CategoriaMeta = CategoriaMeta.AHORRO,
-    val esAutomatica: Boolean = false,
+    val esAutomatico: Boolean = false,
     val notas: String = "",
     val icono: String = "🎯",
     val color: String = "#2196F3",
@@ -77,18 +77,18 @@ enum class PrioridadMeta {
     BAJA,
     MEDIA,
     ALTA,
-    CRÍTICA
+    CRITICA
 }
 
 enum class CategoriaMeta {
     AHORRO,
-    INVERSIÓN,
-    PAGO_DE_DEUDAS,
-    FONDO_DE_EMERGENCIA,
-    EDUCACIÓN,
+    INVERSION,
+    PAGO_DEUDA,
+    FONDO_EMERGENCIA,
+    EDUCACION,
     VACACIONES,
     HOGAR,
-    VEHÍCULO,
-    JUBILACIÓN,
+    VEHICULO,
+    JUBILACION,
     OTRO
 }
