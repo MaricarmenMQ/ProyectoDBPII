@@ -1,6 +1,6 @@
 package com.lvmh.pocketpet.di
 
-import com.lvmh.pocketpet.data.local.database.BaseDatosApp
+import com.lvmh.pocketpet.data.local.database.AppDatabase
 import com.lvmh.pocketpet.data.local.oad.categoriaOad
 import com.lvmh.pocketpet.data.local.oad.cuentaOad
 import com.lvmh.pocketpet.data.local.oad.presupuestoOad
@@ -20,17 +20,17 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object DatabaseModule  {
+object DatabaseModule {
 
     @Provides
     @Singleton
     fun proporcionarBaseDeDatosApp(
         @ApplicationContext contexto: Context
-    ): BaseDatosApp  {
+    ): AppDatabase {
         return Room.databaseBuilder(
             contexto,
-            BaseDatosApp ::class.java,
-            BaseDatosApp .NOMBRE_BASE_DATOS
+            AppDatabase::class.java,
+            AppDatabase.NOMBRE_BASE_DATOS
         )
             .enableMultiInstanceInvalidation()
             .fallbackToDestructiveMigration()
@@ -39,43 +39,43 @@ object DatabaseModule  {
 
     @Provides
     @Singleton
-    fun proporcionarTransaccionOad(baseDeDatos: BaseDatosApp ):  transaccionOad {
+    fun proporcionarTransaccionOad(baseDeDatos: AppDatabase): transaccionOad {
         return baseDeDatos.transaccionOad()
     }
 
     @Provides
     @Singleton
-    fun proporcionarCategoriaOad(baseDeDatos: BaseDatosApp ):categoriaOad {
+    fun proporcionarCategoriaOad(baseDeDatos: AppDatabase): categoriaOad {
         return baseDeDatos.categoriaOad()
     }
 
     @Provides
     @Singleton
-    fun proporcionarCuentaOad(baseDeDatos: BaseDatosApp ): cuentaOad {
+    fun proporcionarCuentaOad(baseDeDatos: AppDatabase): cuentaOad {
         return baseDeDatos.cuentaOad()
     }
 
     @Provides
     @Singleton
-    fun proporcionarPresupuestoOad(baseDeDatos: BaseDatosApp ): presupuestoOad {
+    fun proporcionarPresupuestoOad(baseDeDatos: AppDatabase): presupuestoOad {
         return baseDeDatos.presupuestoOad()
     }
 
     @Provides
     @Singleton
-    fun proporcionarMetaOad(baseDeDatos: BaseDatosApp ): metaOad {
+    fun proporcionarMetaOad(baseDeDatos: AppDatabase): metaOad {
         return baseDeDatos.metaOad()
     }
 
     @Provides
     @Singleton
-    fun proporcionarMascotaOad(baseDeDatos: BaseDatosApp): mascotaOad {
+    fun proporcionarMascotaOad(baseDeDatos: AppDatabase): mascotaOad {
         return baseDeDatos.mascotaOad()
     }
 
     @Provides
     @Singleton
-    fun proporcionarLogroOad(baseDeDatos: BaseDatosApp): logroOad {
+    fun proporcionarLogroOad(baseDeDatos: AppDatabase): logroOad {
         return baseDeDatos.logroOad()
     }
 }
