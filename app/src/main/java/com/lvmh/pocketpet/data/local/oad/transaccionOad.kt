@@ -1,6 +1,7 @@
 package com.lvmh.pocketpet.data.local.oad
 
-import androidx.room.Dao
+import git pull origin main
+androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import com.lvmh.pocketpet.data.local.entidades.transaccion_entidad
