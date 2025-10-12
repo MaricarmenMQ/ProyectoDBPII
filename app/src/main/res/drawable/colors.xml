@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+</resources>
     <!-- Principal -->
-    <color name="color_primario">#5B21B6</color>
+    <color name="color_primary"
+        color="">#5B21B6</color>
     <color name="color_primario_oscuro">#4C1D95</color>
     <color name="color_primario_claro">#7C3AED</color>
 
@@ -84,3 +85,4 @@
     <color name="sombra">#1A000000</color>
     <color name="overlay">#80000000</color>
 </resources>
+

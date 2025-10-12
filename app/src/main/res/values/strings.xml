@@ -1,7 +1,5 @@
 <resources>
-<<<<<<< HEAD
     <string name="app_name">PocketPet</string>
-=======
     <!-- General -->
     <string name="nombre_app">PocketPet</string>
     <string name="aceptar">Aceptar</string>
@@ -185,5 +183,4 @@
     <string name="octubre">Octubre</string>
     <string name="noviembre">Noviembre</string>
     <string name="diciembre">Diciembre</string>
->>>>>>> 659aa94513e4e27a1d883ea9b2add7cdac420627
 </resources>

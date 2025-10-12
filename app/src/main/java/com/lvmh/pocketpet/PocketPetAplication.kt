@@ -4,7 +4,7 @@ import android.app.Application
 import android.util.Log
 
 
-class FinancePetApplication : Application() {
+class PocketPetAplication : Application() {
 
     override fun onCreate() {
         super.onCreate()

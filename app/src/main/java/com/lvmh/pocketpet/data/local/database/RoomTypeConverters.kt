@@ -4,7 +4,7 @@ import androidx.room.TypeConverter
 import com.lvmh.pocketpet.data.local.entidades.
 import com.lvmh.pocketpet.data.local.entidades.CategoriaMeta
 import com.lvmh.pocketpet.data.local.entidades.EstadoMeta
-import com.lvmh.pocketpet.data.local.entidades.PeriodoPresupuesto
+import com.lvmh.pocketpet.data.local.entidades.periodo_presupuesto
 import com.lvmh.pocketpet.data.local.entidades.PrioridadMeta
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
@@ -24,13 +24,13 @@ class RoomTypeConverter{
     }
 
     @TypeConverter
-    fun desdePeriodoPresupuesto(valor: PeriodoPresupuesto?): String? {
+    fun desdePeriodoPresupuesto(valor: periodo_presupuesto?): String? {
         return valor?.name
     }
 
     @TypeConverter
-    fun aPeriodoPresupuesto(valor: String?): PeriodoPresupuesto? {
-        return valor?.let { PeriodoPresupuesto.valueOf(it) }
+    fun aPeriodoPresupuesto(valor: String?): periodo_presupuesto? {
+        return valor?.let { periodo_presupuesto.valueOf(it) }
     }
 
     @TypeConverter

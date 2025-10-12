@@ -1,34 +1,22 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> 659aa94513e4e27a1d883ea9b2add7cdac420627
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
-<<<<<<< HEAD
-=======
+
     alias(libs.plugins.hilt.android)
     alias(libs.plugins.google.devtools.ksp)
->>>>>>> 659aa94513e4e27a1d883ea9b2add7cdac420627
 }
 
 android {
     namespace = "com.lvmh.pocketpet"
-<<<<<<< HEAD
     compileSdk = 36
-=======
     compileSdk = 35
->>>>>>> 659aa94513e4e27a1d883ea9b2add7cdac420627
 
     defaultConfig {
         applicationId = "com.lvmh.pocketpet"
         minSdk = 27
-<<<<<<< HEAD
         targetSdk = 36
-=======
         targetSdk = 35
->>>>>>> 659aa94513e4e27a1d883ea9b2add7cdac420627
         versionCode = 1
         versionName = "1.0"
 
@@ -44,7 +32,6 @@ android {
             )
         }
     }
-<<<<<<< HEAD
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
@@ -52,7 +39,6 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
-=======
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -63,35 +49,27 @@ android {
         jvmTarget = "1.8"
     }
 
->>>>>>> 659aa94513e4e27a1d883ea9b2add7cdac420627
     buildFeatures {
         compose = true
     }
 }
 
 dependencies {
-<<<<<<< HEAD
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
-=======
     // Core Android
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation("androidx.appcompat:appcompat:1.6.1")
 
-    // Compose
->>>>>>> 659aa94513e4e27a1d883ea9b2add7cdac420627
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
-<<<<<<< HEAD
-=======
 
-    // Material Design
     implementation("com.google.android.material:material:1.11.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
 
@@ -125,7 +103,6 @@ dependencies {
     ksp("com.google.dagger:hilt-android-compiler:2.51.1")
 
     // Testing
->>>>>>> 659aa94513e4e27a1d883ea9b2add7cdac420627
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
