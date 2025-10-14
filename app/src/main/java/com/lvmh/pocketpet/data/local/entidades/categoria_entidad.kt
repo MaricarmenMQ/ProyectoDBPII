@@ -13,9 +13,10 @@ import androidx.room.Index
 )
 data class categoria_entidad(
     @PrimaryKey
-    val id: String = "",
+    val id: Long = 0,
     val usuario_id: String = "",
     val nombre: String = "",
+    val cuenta_id: String = "",
     val descripcion: String = "",
     val icono: String = "📁",
     val color: String = "#2196F3",

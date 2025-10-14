@@ -21,7 +21,7 @@ class BalanceCard @JvmOverloads constructor(
     private val textoAhorro: TextView
 
     init {
-        LayoutInflater.from(context).inflate(R.layout.componente_balance_card, this, true)
+        LayoutInflater.from(context).inflate(R.layout.balance_de_tarjeta, this, true)
 
         textoTitulo = findViewById(R.id.textoTituloBalance)
         textoBalance = findViewById(R.id.textoBalanceTotal)

@@ -31,7 +31,7 @@ import java.time.LocalDateTime
 )
 data class meta_entidad(
     @PrimaryKey(autoGenerate = true)
-    val id: String = "",
+    val id: Long = 0,
     val usuarioId: String = "",
     val categoriaId: String = "",
     val cuentaId: String? = null,

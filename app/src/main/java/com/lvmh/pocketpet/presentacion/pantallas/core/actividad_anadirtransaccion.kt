@@ -16,17 +16,15 @@ import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class actividad_anadirtransaccion : AppCompatActivity() {
 
-    private lateinit var binding: ActividadAnadirTransaccionBinding
-    private val viewModel: TransactionViewModel by viewModels()
-
+    private lateinit var vincular: ActividadAnadirTransaccionBinding
     private var tipoSeleccionado = "gasto"
     private var categoriaSeleccionada: Long = 0
     private var cuentaSeleccionada: Long = 1 // Por defecto cuenta 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActividadAnadirTransaccionBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        vincular = ActividadAnadirTransaccionBinding.inflate(layoutInflater)
+        setContentView(vincular.root)
 
         configurarToolbar()
         configurarTabs()
@@ -35,7 +33,7 @@ class actividad_anadirtransaccion : AppCompatActivity() {
     }
 
     private fun configurarToolbar() {
-        setSupportActionBar(binding.toolbar)
+        setSupportActionBar(vincular.toolbar)
         supportActionBar?.apply {
             title = getString(R.string.agregar_transaccion)
             setDisplayHomeAsUpEnabled(true)
@@ -43,7 +41,7 @@ class actividad_anadirtransaccion : AppCompatActivity() {
     }
 
     private fun configurarTabs() {
-        binding.tabLayoutTipo.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+        vincular.tabLayoutTipo.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 tipoSeleccionado = when (tab?.position) {
                     0 -> "gasto"
@@ -57,26 +55,26 @@ class actividad_anadirtransaccion : AppCompatActivity() {
     }
 
     private fun configurarBotones() {
-        binding.btnGuardarTransaccion.setOnClickListener {
+        vincular.btnGuardarTransaccion.setOnClickListener {
             guardarTransaccion()
         }
     }
 
     private fun guardarTransaccion() {
-        val monto = binding.etMonto.text.toString().toDoubleOrNull()
-        val descripcion = binding.etDescripcion.text.toString()
+        val monto = vincular.etMonto.text.toString().toDoubleOrNull()
+        val descripcion = vincular.etDescripcion.text.toString()
 
         if (monto == null || monto <= 0) {
-            binding.etMonto.error = "Ingresa un monto válido"
+            vincular.etMonto.error = "Ingresa un monto válido"
             return
         }
 
         if (descripcion.isBlank()) {
-            binding.etDescripcion.error = "Ingresa una descripción"
+            vincular.etDescripcion.error = "Ingresa una descripción"
             return
         }
 
-        viewModel.crear_transaccion(
+        verModelo.crear_transaccion(
             tipo = tipoSeleccionado,
             monto = monto,
             categoria_id = categoriaSeleccionada,
@@ -87,10 +85,10 @@ class actividad_anadirtransaccion : AppCompatActivity() {
 
     private fun observarEstado() {
         lifecycleScope.launch {
-            viewModel.estado_ui.collect { estado ->
+            verModelo.estado_ui.collect { estado ->
                 when (estado) {
                     is EstadoUiTransaccion.Cargando -> {
-                        binding.btnGuardarTransaccion.isEnabled = false
+                        vincular.btnGuardarTransaccion.isEnabled = false
                     }
                     is EstadoUiTransaccion.Exito -> {
                         Toast.makeText(this@actividad_anadirtransaccion, estado.mensaje, Toast.LENGTH_SHORT).show()
@@ -98,10 +96,10 @@ class actividad_anadirtransaccion : AppCompatActivity() {
                     }
                     is EstadoUiTransaccion.Error -> {
                         Toast.makeText(this@actividad_anadirtransaccion, estado.mensaje, Toast.LENGTH_SHORT).show()
-                        binding.btnGuardarTransaccion.isEnabled = true
+                        vincular.btnGuardarTransaccion.isEnabled = true
                     }
                     else -> {
-                        binding.btnGuardarTransaccion.isEnabled = true
+                        vincular.btnGuardarTransaccion.isEnabled = true
                     }
                 }
             }

@@ -24,7 +24,7 @@ class TransactionCard @JvmOverloads constructor(
     private val textoCategoria: TextView
 
     init {
-        LayoutInflater.from(context).inflate(R.layout.componente_transaction_card, this, true)
+        LayoutInflater.from(context).inflate(R.layout.transaccion_de_tarjeta, this, true)
 
         iconoCategoria = findViewById(R.id.iconoCategoria)
         textoDescripcion = findViewById(R.id.textoDescripcion)
@@ -65,9 +65,9 @@ class TransactionCard @JvmOverloads constructor(
 
         // Icono según tipo
         val iconoRes = if (transaccion.tipo.lowercase() == "ingreso") {
-            R.drawable.ic_ingreso
+            R.drawable.ic_ingresos
         } else {
-            R.drawable.ic_gasto
+            R.drawable.ic_gastos
         }
         iconoCategoria.setImageResource(iconoRes)
     }

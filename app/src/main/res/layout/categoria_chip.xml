@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/componente_category_chip"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="8dp">
+
+    <com.google.android.material.chip.Chip
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        style="@style/Widget.MaterialComponents.Chip.Filter"
+        app:chipIcon="@drawable/ic_comida"
+        android:checkable="true">
+
+        <!-- Icono de Categoría -->
+        <ImageView
+            android:id="@+id/textoIconoCategoria"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginEnd="8dp"
+            android:contentDescription="@string/app_name" />
+
+        <!-- Nombre de Categoría -->
+        <TextView
+            android:id="@+id/textoNombreCategoria"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Categoria"
+            android:textSize="14sp"
+            android:textColor="@color/black" />
+
+    </com.google.android.material.chip.Chip>
+
+</FrameLayout>

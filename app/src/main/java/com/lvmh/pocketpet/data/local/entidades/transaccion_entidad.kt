@@ -31,10 +31,10 @@ import androidx.room.Index
 data class transaccion_entidad(
     @PrimaryKey(autoGenerate = true)
     val id: Long = 0,
-    val tipo: String, // "ingreso" o "gasto"
+    val id_categoria: Long,
+    val id_cuenta: Long,
+    val tipo: String,
     val monto: Double,
-    val id_categoria: String,
-    val id_cuenta: String,
     val descripcion: String,
     val fecha: Long = System.currentTimeMillis(),
     val imagenUri: String? = null,

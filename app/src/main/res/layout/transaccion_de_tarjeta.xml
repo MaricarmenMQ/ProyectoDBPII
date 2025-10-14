@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/componente_transaction_card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="12dp"
+    android:background="@drawable/bg_tarjeta_redondeada"
+    android:layout_margin="8dp"
+    android:gravity="center_vertical">
+
+    <!-- Icono de Categoría -->
+    <ImageView
+        android:id="@+id/iconoCategoria"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="12dp"
+        android:padding="8dp"
+        android:background="@drawable/bg_tarjeta_redondeada"
+        android:contentDescription="@string/app_name"
+        android:scaleType="centerInside" />
+
+    <!-- Contenedor de Textos -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_marginEnd="12dp">
+
+        <!-- Descripción de la Transacción -->
+        <TextView
+            android:id="@+id/textoDescripcion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Descripción"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginBottom="4dp" />
+
+        <!-- Categoría -->
+        <TextView
+            android:id="@+id/textoCategoria"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Categoría"
+            android:textSize="12sp"
+            android:textColor="@color/color_balance_neutro" />
+
+    </LinearLayout>
+
+    <!-- Contenedor de Monto y Fecha -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="end">
+
+        <!-- Monto -->
+        <TextView
+            android:id="@+id/textoMonto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="$0.00"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginBottom="4dp" />
+
+        <!-- Fecha -->
+        <TextView
+            android:id="@+id/textoFecha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="14/10/2025"
+            android:textSize="11sp"
+            android:textColor="@color/color_balance_neutro" />
+
+    </LinearLayout>
+
+    <!-- Iconos de Tipo de Transacción (Ingreso/Gasto) -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginStart="12dp">
+
+        <!-- Icono Ingreso -->
+        <ImageView
+            android:id="@+id/ic_ingreso"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:contentDescription="@string/app_name"
+            android:visibility="gone"
+            android:src="@drawable/ic_ingresos" />
+
+        <!-- Icono Gasto -->
+        <ImageView
+            android:id="@+id/ic_gasto"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:contentDescription="@string/app_name"
+            android:visibility="gone"
+            android:src="@drawable/ic_gastos" />
+
+    </LinearLayout>
+
+</LinearLayout>

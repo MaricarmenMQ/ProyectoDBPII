@@ -21,7 +21,7 @@ class CategoryChip @JvmOverloads constructor(
     private var estaSeleccionado = false
 
     init {
-        LayoutInflater.from(context).inflate(R.layout.componente_category_chip, this, true)
+        LayoutInflater.from(context).inflate(R.layout.categoria_chip, this, true)
 
         textoIcono = findViewById(R.id.textoIconoCategoria)
         textoNombre = findViewById(R.id.textoNombreCategoria)

@@ -12,7 +12,7 @@ import com.lvmh.pocketpet.R
 import kotlin.math.max
 import kotlin.math.min
 
-class ver_grafico @JvmOverloads constructor(
+class vergrafico @JvmOverloads constructor(
     contexto: Context,
     atributos: AttributeSet? = null,
     estiloDefecto: Int = 0

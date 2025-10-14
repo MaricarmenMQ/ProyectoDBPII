@@ -30,7 +30,7 @@ import java.time.LocalDateTime
 )
 data class presupuesto_entidad(
     @PrimaryKey(autoGenerate = true)
-    val id: String = "",
+    val id: Long =0,
     val usuario_id: String = "",
     val categoria_id: String = "",
     val cuenta_id: String? = null,

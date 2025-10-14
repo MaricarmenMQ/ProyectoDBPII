@@ -53,7 +53,7 @@ object CalculadoraEstadisticas {
 
     fun agruparTransaccionesPorCategoria(transacciones: List<transaccion_entidad>): Map<Long, Double> {
         return transacciones
-            .groupBy { it.id_categoria }
+            .groupBy { it.id_categoria.toLong() }
             .mapValues { (_, elementos) -> elementos.sumOf { it.monto } }
     }
 

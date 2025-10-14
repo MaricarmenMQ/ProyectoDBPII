@@ -15,9 +15,9 @@ import javax.inject.Inject
 
 @HiltViewModel
 class TransactionViewModel @Inject constructor(
-    private val transaccion_repositorio: transaccionRepositorio,
-    private val cuenta_repositorio: cuentaRepositorio,
-    private val categoria_repositorio: categoriaRepositorio
+    private val transaccionRepositorio: transaccionRepositorio,
+    private val cuentaRepositorio: cuentaRepositorio,
+    private val categoriaRepositorio: categoriaRepositorio
 ) : ViewModel() {
 
     private val _estado_ui = MutableStateFlow<EstadoUiTransaccion>(EstadoUiTransaccion.Inactivo)
@@ -64,19 +64,19 @@ class TransactionViewModel @Inject constructor(
                 val transaccion = transaccion_entidad(
                     tipo = tipo,
                     monto = monto,
-                    id_categoria = categoria_id,
-                    id_monto = cuenta_id,
+                    id_categoria = categoria_id.toString(),
+                    id_cuenta = cuenta_id.toString(),
                     descripcion = descripcion,
                     fecha = fecha,
                     imagenUri = imagen_uri
                 )
 
-                val transaccion_id = transaccion_repositorio.crear_transaccion(transaccion)
+                val transaccion_id = transaccionRepositorio.crear_transaccion(transaccion)
 
                 // Actualizar balance de cuenta
                 when (tipo.lowercase()) {
-                    "ingreso" -> cuenta_repositorio.incrementar_balance(cuenta_id.toString(), monto)
-                    "gasto" -> cuenta_repositorio.decrementar_balance(cuenta_id.toString(), monto)
+                    "ingreso" -> cuentaRepositorio.incrementar_balance(cuenta_id.toString(), monto)
+                    "gasto" -> cuentaRepositorio.decrementar_balance(cuenta_id.toString(), monto)
                 }
 
                 _estado_ui.value = EstadoUiTransaccion.Exito("Transacción registrada exitosamente")
@@ -90,7 +90,7 @@ class TransactionViewModel @Inject constructor(
     fun cargar_transacciones_recientes() {
         viewModelScope.launch {
             try {
-                transaccion_repositorio.obtener_transacciones_recientes().collect { transacciones ->
+                transaccionRepositorio.obtener_transacciones_recientes().collect { transacciones ->
                     _transacciones_recientes.value = transacciones
                 }
             } catch (e: Exception) {
@@ -104,7 +104,7 @@ class TransactionViewModel @Inject constructor(
             try {
                 _estado_ui.value = EstadoUiTransaccion.Cargando
 
-                transaccion_repositorio.obtener_transacciones_por_rango_fechas(fecha_inicio, fecha_fin)
+                transaccionRepositorio.obtener_transacciones_por_rango_fechas(fecha_inicio, fecha_fin)
                     .collect { transacciones ->
                         _lista_transacciones.value = transacciones
                         _estado_ui.value = EstadoUiTransaccion.Inactivo
@@ -118,11 +118,11 @@ class TransactionViewModel @Inject constructor(
     fun cargar_totales_periodo(fecha_inicio: Long, fecha_fin: Long) {
         viewModelScope.launch {
             try {
-                transaccion_repositorio.obtener_total_ingresos(fecha_inicio, fecha_fin).collect { ingresos ->
+                transaccionRepositorio.obtener_total_ingresos(fecha_inicio, fecha_fin).collect { ingresos ->
                     _total_ingresos.value = ingresos ?: 0.0
                 }
 
-                transaccion_repositorio.obtener_total_gastos(fecha_inicio, fecha_fin).collect { gastos ->
+                transaccionRepositorio.obtener_total_gastos(fecha_inicio, fecha_fin).collect { gastos ->
                     _total_gastos.value = gastos ?: 0.0
                 }
 

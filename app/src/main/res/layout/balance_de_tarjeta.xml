@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@drawable/bg_tarjeta_redondeada">
+
+    <!-- Título del Balance -->
+    <TextView
+        android:id="@+id/textoTituloBalance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Balance Total"
+        android:textSize="14sp"
+        android:textColor="@color/color_balance_neutro"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Balance Total -->
+    <TextView
+        android:id="@+id/textoBalanceTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="$0.00"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Contenedor de Ingresos, Gastos y Ahorro -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:baselineAligned="false">
+
+        <!-- Ingresos -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/textoIngresos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ingresos"
+                android:textSize="12sp"
+                android:textColor="@color/color_balance_positivo"
+                android:layout_marginBottom="4dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$0.00"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/color_balance_positivo" />
+        </LinearLayout>
+
+        <!-- Gastos -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/textoGastos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gastos"
+                android:textSize="12sp"
+                android:textColor="@color/color_balance_negativo"
+                android:layout_marginBottom="4dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$0.00"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/color_balance_negativo" />
+        </LinearLayout>
+
+        <!-- Ahorro -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/textoAhorro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ahorro"
+                android:textSize="12sp"
+                android:textColor="@color/color_info"
+                android:layout_marginBottom="4dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$0.00"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/color_info" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Componente balance_card (si es un include) -->
+    <FrameLayout
+        android:id="@+id/componente_balance_card"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_tarjeta_redondeada" />
+
+</LinearLayout>
