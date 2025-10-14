@@ -2,21 +2,14 @@ package com.lvmh.pocketpet.data.local.entidades
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import androidx.room.Index
 
-@Entity(
-    tableName = "categorias",
-    indices = [
-        Index("usuario_id"),
-        Index("tipo")
-    ]
-)
+@Entity(tableName = "categorias")
 data class categoria_entidad(
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     val id: Long = 0,
+
     val usuario_id: String = "",
     val nombre: String = "",
-    val cuenta_id: String = "",
     val descripcion: String = "",
     val icono: String = "📁",
     val color: String = "#2196F3",
@@ -28,11 +21,32 @@ data class categoria_entidad(
     val actualizado_en: Long = System.currentTimeMillis()
 )
 
-// Categorías predeterminadas del sistema
+enum class TipoCategoria {
+    INGRESO,
+    GASTO;
+
+    companion object {
+        fun fromString(valor: String): TipoCategoria {
+            return when (valor.lowercase()) {
+                "ingreso" -> INGRESO
+                "gasto" -> GASTO
+                else -> GASTO
+            }
+        }
+    }
+
+    override fun toString(): String {
+        return when (this) {
+            INGRESO -> "ingreso"
+            GASTO -> "gasto"
+        }
+    }
+}
+
 object categorias_predeterminadas {
     val CATEGORIAS_GASTO = listOf(
         categoria_entidad(
-            id = "cat_gasto_alimentacion",
+            id = 1,
             usuario_id = "sistema",
             nombre = "Alimentación",
             descripcion = "Comida, supermercado, restaurantes",
@@ -43,7 +57,7 @@ object categorias_predeterminadas {
             orden = 1
         ),
         categoria_entidad(
-            id = "cat_gasto_transporte",
+            id = 2,
             usuario_id = "sistema",
             nombre = "Transporte",
             descripcion = "Taxi, combustible, transporte público",
@@ -54,7 +68,7 @@ object categorias_predeterminadas {
             orden = 2
         ),
         categoria_entidad(
-            id = "cat_gasto_entretenimiento",
+            id = 3,
             usuario_id = "sistema",
             nombre = "Entretenimiento",
             descripcion = "Cine, streaming, juegos, salidas",
@@ -65,7 +79,7 @@ object categorias_predeterminadas {
             orden = 3
         ),
         categoria_entidad(
-            id = "cat_gasto_salud",
+            id = 4,
             usuario_id = "sistema",
             nombre = "Salud",
             descripcion = "Medicinas, doctor, farmacia",
@@ -76,7 +90,7 @@ object categorias_predeterminadas {
             orden = 4
         ),
         categoria_entidad(
-            id = "cat_gasto_servicios",
+            id = 5,
             usuario_id = "sistema",
             nombre = "Servicios",
             descripcion = "Luz, agua, internet, teléfono",
@@ -87,7 +101,7 @@ object categorias_predeterminadas {
             orden = 5
         ),
         categoria_entidad(
-            id = "cat_gasto_educacion",
+            id = 6,
             usuario_id = "sistema",
             nombre = "Educación",
             descripcion = "Cursos, libros, materiales",
@@ -98,7 +112,7 @@ object categorias_predeterminadas {
             orden = 6
         ),
         categoria_entidad(
-            id = "cat_gasto_vivienda",
+            id = 7,
             usuario_id = "sistema",
             nombre = "Vivienda",
             descripcion = "Alquiler, mantenimiento, muebles",
@@ -109,7 +123,7 @@ object categorias_predeterminadas {
             orden = 7
         ),
         categoria_entidad(
-            id = "cat_gasto_otros",
+            id = 8,
             usuario_id = "sistema",
             nombre = "Otros Gastos",
             descripcion = "Gastos varios",
@@ -123,7 +137,7 @@ object categorias_predeterminadas {
 
     val CATEGORIAS_INGRESO = listOf(
         categoria_entidad(
-            id = "cat_ingreso_salario",
+            id = 9,
             usuario_id = "sistema",
             nombre = "Salario",
             descripcion = "Sueldo mensual, pago de trabajo",
@@ -134,7 +148,7 @@ object categorias_predeterminadas {
             orden = 1
         ),
         categoria_entidad(
-            id = "cat_ingreso_freelance",
+            id = 10,
             usuario_id = "sistema",
             nombre = "Freelance",
             descripcion = "Trabajos independientes",
@@ -145,7 +159,7 @@ object categorias_predeterminadas {
             orden = 2
         ),
         categoria_entidad(
-            id = "cat_ingreso_inversion",
+            id = 11,
             usuario_id = "sistema",
             nombre = "Inversiones",
             descripcion = "Dividendos, rendimientos",
@@ -156,7 +170,7 @@ object categorias_predeterminadas {
             orden = 3
         ),
         categoria_entidad(
-            id = "cat_ingreso_otros",
+            id = 12,
             usuario_id = "sistema",
             nombre = "Otros Ingresos",
             descripcion = "Ingresos varios",
