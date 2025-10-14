@@ -3,6 +3,7 @@ package com.lvmh.pocketpet.data.local.entidades
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.Index
+import androidx.room.PrimaryKey
 import java.time.LocalDateTime
 
 @Entity(
@@ -29,6 +30,7 @@ import java.time.LocalDateTime
     ]
 )
 data class meta_entidad(
+    @PrimaryKey(autoGenerate = true)
     val id: String = "",
     val usuarioId: String = "",
     val categoriaId: String = "",

@@ -3,6 +3,7 @@ package com.lvmh.pocketpet.data.local.entidades
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.Index
+import androidx.room.PrimaryKey
 import com.lvmh.pocketpet.dominio.modelos.categoria
 import java.time.LocalDateTime
 @Entity(
@@ -28,6 +29,7 @@ import java.time.LocalDateTime
     ]
 )
 data class presupuesto_entidad(
+    @PrimaryKey(autoGenerate = true)
     val id: String = "",
     val usuario_id: String = "",
     val categoria_id: String = "",

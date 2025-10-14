@@ -3,6 +3,7 @@ package com.lvmh.pocketpet.data.local.oad
 import androidx.room.*
 import com.lvmh.pocketpet.data.local.entidades.categoria_entidad
 import kotlinx.coroutines.flow.Flow
+@Dao
 interface categoriaOad {@Insert(onConflict = OnConflictStrategy.REPLACE)
 suspend fun insertar(categoria: categoria_entidad)
 
